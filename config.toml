@@ -9,6 +9,11 @@ publishDir = "public"
   author = "CorelTech Servicios Técnicos"
 [menu]
   [[menu.main]]
+  name = "Categorías"
+  url = "/categories/"
+  weight = 6
+  
+  [[menu.main]]
     name = "Inicio"
     url = "/"
     weight = 1
