@@ -23,6 +23,11 @@ publishDir = "public"
     url = "https://coreltech.com "  # ← Tu sitio web principal
     weight = 3
 
+    [[menu.main]]
+  name = "Sobre CorelTech"
+  url = "/sobre/"
+  weight = 5
+
   [[menu.main]]
     name = "Contacto"
     url = "/contacto/"
