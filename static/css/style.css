@@ -19,6 +19,57 @@ footer {
   color: #777;
 }
 
+/* Estilo del formulario */
+form {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+form button {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #005fa3;
+}
+
+form p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
