@@ -8,7 +8,7 @@ draft: false
 
 Si necesitas ayuda con **hardware, software o redes**, déjame tus datos y me pondré en contacto contigo lo antes posible.
 
-<form action="https://formspree.io/f/xzzvzdvg" method="POST">
+<form action="https://formspree.io/f/YOUR_FORM_ID " method="POST">
   <label>
     Tu nombre:
     <input type="text" name="name" required />
