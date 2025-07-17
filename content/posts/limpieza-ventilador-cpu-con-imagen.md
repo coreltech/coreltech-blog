@@ -33,7 +33,7 @@ Con el tiempo, se acumula polvo y puede causar sobrecalentamiento, ruido excesiv
    - Sopla con cuidado para no dañar las aspas
    - Si está muy sucio, usa un cepillo suave
 
-![Ventilador de CPU sucio y limpio](/images/ventilador-cpu.jpg)
+![Ventilador de CPU sucio y limpio](/images/ventilador-cpu.webp)
 
 5. **Revisa el estado de la pasta térmica**
    - Si el disipador se calienta mucho, puede ser que la pasta esté seca o mala
