@@ -12,12 +12,24 @@
   <p>{{ .Site.Params.description }}</p>
 
   <nav>
-    <ul>
-      {{ range .Site.Menus.main }}
+  <ul>
+    {{ $currentUrl := .Permalink }}
+    {{ range .Site.Menus.main }}
+      {{ if .HasChildren }}
+        <li>
+          <a href="{{ .URL }}">{{ .Name }}</a>
+          <ul>
+            {{ range .Children }}
+              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+        </li>
+      {{ else }}
         <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
-    </ul>
-  </nav>
+    {{ end }}
+  </ul>
+</nav>
 </header>
   <main>
     {{ block "main" . }}
