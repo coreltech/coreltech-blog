@@ -1,22 +1,44 @@
-body {
-  font-family: sans-serif;
-  max-width: 700px;
-  margin: auto;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  color: #333;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Tipografía y estilo general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Header */
 header {
   text-align: center;
   margin-bottom: 2rem;
+  padding: 1rem 0;
+  background: #0077cc;
+  color: white;
+  border-radius: 8px;
 }
 
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.9em;
-  color: #777;
+header img {
+  max-width: 120px;
+  margin-bottom: 0.5rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
 }
 
 /* Menú de navegación */
@@ -28,6 +50,11 @@ nav ul {
   margin: 1rem 0;
   flex-wrap: wrap;
   font-size: 0.95rem;
+  position: relative;
+}
+
+nav ul li {
+  position: relative;
 }
 
 nav ul li a {
@@ -37,6 +64,7 @@ nav ul li a {
   padding: 0.5rem 0.8rem;
   background-color: #0077cc;
   border-radius: 4px;
+  display: block;
   transition: background 0.3s ease;
 }
 
@@ -45,10 +73,6 @@ nav ul li a:hover {
 }
 
 /* Submenú de categorías */
-nav ul li:hover ul {
-  display: block;
-}
-
 nav ul li ul {
   display: none;
   position: absolute;
@@ -58,7 +82,12 @@ nav ul li ul {
   margin: 0;
   min-width: 140px;
   border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+nav ul li:hover ul {
+  display: block;
 }
 
 nav ul li ul li {
@@ -71,6 +100,8 @@ nav ul li ul li a {
   color: white;
   padding: 0.5rem 0.8rem;
   display: block;
+  font-size: 0.9rem;
+  font-weight: normal;
   background-color: #005fa3;
 }
 
@@ -78,19 +109,48 @@ nav ul li ul li a:hover {
   background-color: #004a80;
 }
 
+/* Artículo individual */
+article {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+}
 
-/* Estilo del formulario */
+article h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+article time {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Imágenes en artículos */
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Formulario de contacto */
 form {
   margin: 1rem 0;
   padding: 1rem;
-  background-color: #fff;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
 
 form label {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: bold;
 }
 
@@ -99,20 +159,15 @@ form input[type="email"],
 form textarea {
   width: 100%;
   padding: 0.5rem;
-  margin-top: 0.3rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
 }
 
-form textarea {
-  resize: vertical;
-  height: 150px;
-}
-
 form button {
   background-color: #0077cc;
-  color: #fff;
+  color: white;
   border: none;
   padding: 0.7rem 1.2rem;
   font-size: 1rem;
@@ -124,108 +179,32 @@ form button:hover {
   background-color: #005fa3;
 }
 
-form p {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #666;
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
+/* Enlaces internos */
 a {
   color: #0077cc;
   text-decoration: none;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  font-size: 0.95rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #0077cc;
-  font-weight: bold;
-}
-
-nav ul li a:hover {
+a:hover {
   text-decoration: underline;
 }
 
-header img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
-}
-
-/* Menú de navegación */
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  margin: 1rem 0;
-  flex-wrap: wrap;
-  font-size: 0.95rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 0.5rem 0.8rem;
-  background-color: #0077cc;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: #005fa3;
-}
-
-/* Submenú de categorías */
-nav ul li:hover ul {
-  display: block;
-}
-
-nav ul li ul {
-  display: none;
-  position: absolute;
-  background-color: #005fa3;
+/* Listado de artículos */
+ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  min-width: 140px;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-nav ul li ul li {
-  display: block;
-  margin: 0;
-  text-align: left;
-}
-
-nav ul li ul li a {
-  color: white;
-  padding: 0.5rem 0.8rem;
-  display: block;
-  background-color: #005fa3;
-}
-
-nav ul li ul li a:hover {
-  background-color: #004a80;
+li {
+  margin-bottom: 1rem;
 }
