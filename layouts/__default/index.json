@@ -1,9 +1,12 @@
 [
-  {{ range first 5 site.RegularPages }}
-    {
-      "title": "{{ .Title }}",
-      "link": "{{ .Permalink }}",
-      "date": "{{ .Date.Format "2006-01-02" }}"
-    }{{ if not (lastindex (first 5 site.RegularPages) .) }},{{ end }}
-  {{ end }}
+  {
+    "title": "Guía básica de mantenimiento de PC",
+    "link": "/posts/mantenimiento-pc/",
+    "date": "2025-04-05"
+  },
+  {
+    "title": "Cómo arreglar fallos comunes de red",
+    "link": "/posts/fallos-red/",
+    "date": "2025-04-04"
+  }
 ]
