@@ -8,11 +8,7 @@ publishDir = "public"
   description = "Artículos técnicos sobre mantenimiento de hardware, software y redes."
   author = "CorelTech Servicios Técnicos"
 [menu]
-  [[menu.main]]
-  name = "Categorías"
-  url = "/categories/"
-  weight = 6
-  
+ [menu]
   [[menu.main]]
     name = "Inicio"
     url = "/"
@@ -24,14 +20,27 @@ publishDir = "public"
     weight = 2
 
   [[menu.main]]
-    name = "Servicios"
-    url = "https://coreltech.com "  # ← Tu sitio web principal
-    weight = 3
+    name = "Hardware"
+    url = "/categories/hardware/"
+    parent = "Artículos"
+    weight = 21
 
-    [[menu.main]]
-  name = "Sobre CorelTech"
-  url = "/sobre/"
-  weight = 5
+  [[menu.main]]
+    name = "Software"
+    url = "/categories/software/"
+    parent = "Artículos"
+    weight = 22
+
+  [[menu.main]]
+    name = "Redes"
+    url = "/categories/redes/"
+    parent = "Artículos"
+    weight = 23
+
+  [[menu.main]]
+    name = "Sobre CorelTech"
+    url = "/sobre-coreltech/"
+    weight = 3
 
   [[menu.main]]
     name = "Contacto"
