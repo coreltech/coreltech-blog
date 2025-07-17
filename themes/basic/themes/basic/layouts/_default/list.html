@@ -1,0 +1,13 @@
+{{ define "title" }}{{ .Site.Title }} - Artículos{{ end }}
+
+{{ define "main" }}
+  <h2>Últimos artículos</h2>
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <small> - {{ .Date.Format "2 January 2006" }}</small>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
