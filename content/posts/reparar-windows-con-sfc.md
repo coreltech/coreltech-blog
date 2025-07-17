@@ -25,3 +25,46 @@ El comando `sfc /scannow` escanea y repara los archivos del sistema de Windows.
 2. **Ejecuta el comando:**
    ```powershell
    sfc /scannow
+
+      Espera a que termine  
+        Puede tardar unos minutos
+         
+
+    Reinicia tu computadora  
+     
+
+Este comando detectará y reparará archivos del sistema dañados.
+Qué es DISM? 
+
+Si sfc /scannow no funciona, puedes usar DISM, que repara la imagen del sistema. 
+Paso a paso: 
+
+    Abre CMD como administrador  
+
+    Ejecuta este comando:  
+    powershell
+     
+
+ 
+1
+DISM /Online /Cleanup-Image /RestoreHealth
+ 
+ 
+
+Espera a que termine  
+
+    Puede tardar entre 10 y 30 minutos
+    No cierres la ventana hasta que termine
+     
+
+Reinicia tu PC
+Consejos finales 
+
+    Haz una copia de seguridad antes de usar estos comandos
+    Si no te sientes seguro, ¡no lo hagas tú solo!
+    Si tienes Windows Home, estos comandos también funcionan
+     
+
+¿Tienes este problema en tu empresa o casa?
+👉 ¡Te ayudamos! Contáctanos aquí  
+
