@@ -7,9 +7,17 @@
 </head>
 <body>
   <header>
-    <h1><a href="/">{{ .Site.Title }}</a></h1>
-    <p>{{ .Site.Params.description }}</p>
-  </header>
+  <h1><a href="/">{{ .Site.Title }}</a></h1>
+  <p>{{ .Site.Params.description }}</p>
+
+  <nav>
+    <ul>
+      {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>
   <main>
     {{ block "main" . }}
     {{ end }}
