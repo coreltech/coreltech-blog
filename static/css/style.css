@@ -32,3 +32,23 @@ a {
   color: #0077cc;
   text-decoration: none;
 }
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
