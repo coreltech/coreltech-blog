@@ -7,3 +7,23 @@ publishDir = "public"
 [params]
   description = "Artículos técnicos sobre mantenimiento de hardware, software y redes."
   author = "CorelTech Servicios Técnicos"
+[menu]
+  [[menu.main]]
+    name = "Inicio"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Artículos"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Servicios"
+    url = "https://coreltech.com "  # ← Tu sitio web principal
+    weight = 3
+
+  [[menu.main]]
+    name = "Contacto"
+    url = "/contacto/"
+    weight = 4
