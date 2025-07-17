@@ -1,0 +1,9 @@
+{{- $.Scratch.Add "posts" slice -}}
+{{- range first 5 site.RegularPages -}}
+  {{- $.Scratch.Add "posts" (dict 
+    "title" .Title 
+    "link" .Permalink 
+    "date" .Date.Format "2 January 2006"
+  ) -}}
+{{- end -}}
+{{- $.Scratch.Get "posts" | jsonify -}}
