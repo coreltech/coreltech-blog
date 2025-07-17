@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1313"
 languageCode = "es-ES"
-title = "Blog de CorelTech"
+title = "Blog de CorelTech - Articulos"
 theme = "cupper"
 publishDir = "public"
 
