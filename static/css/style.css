@@ -52,3 +52,10 @@ nav ul li a {
 nav ul li a:hover {
   text-decoration: underline;
 }
+
+header img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
