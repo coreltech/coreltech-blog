@@ -30,7 +30,7 @@ header {
 
 /* Estilo del logo en el header */
 header img {
-  max-width: 80px; /* Tamaño más profesional */
+  max-width: 120px; /* Tamaño más profesional */
   height: auto;
   margin-bottom: 0.5rem;
   float: left;
