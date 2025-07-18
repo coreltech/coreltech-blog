@@ -1,14 +1,15 @@
-baseURL = "https://coreltech-blog.vercel.app"
+baseURL = "https://coreltech-blog.vercel.app "
 languageCode = "es-ES"
-title = "Blog de CorelTech - Articulos"
+title = "Blog de CorelTech - Soluciones Técnicas"
 theme = "basic"
 publishDir = "public"
 
 [params]
-  description = "Artículos técnicos sobre mantenimiento de hardware, software y redes."
-  author = "CorelTech Servicios Técnicos"
+  description = "Blog técnico sobre mantenimiento de hardware, software y redes informáticas."
+  author = "CorelTech Servicios Informáticos"
+  keywords = ["mantenimiento", "hardware", "software", "redes", "soporte técnico", "CorelTech"]
+
 [menu]
- [menu]
   [[menu.main]]
     name = "Inicio"
     url = "/"
@@ -46,6 +47,3 @@ publishDir = "public"
     name = "Contacto"
     url = "/contacto/"
     weight = 4
-
-    [build]
-  writePublic = true
