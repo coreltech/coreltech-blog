@@ -1,4 +1,4 @@
-
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +11,9 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
-  padding: 1rem;
   max-width: 800px;
   margin: auto;
+  padding: 1rem;
 }
 
 /* Header */
@@ -59,11 +59,13 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #0077cc;
+  color: #fff;
   font-weight: bold;
   padding: 0.5rem 0.8rem;
-  background: #0077cc;
-  color: #fff;
+  background-color: #0077cc;
+  border-radius: 4px;
+  display: block;
+  transition: background 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -206,3 +208,4 @@ ul {
 li {
   margin-bottom: 1rem;
 }
+
