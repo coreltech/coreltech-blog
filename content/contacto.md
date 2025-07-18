@@ -1,0 +1,25 @@
+---
+title: "Contáctame"
+date: 2025-04-06
+draft: false
+---
+
+## ¿Tienes un problema técnico?
+
+Si necesitas ayuda con **hardware, software o redes**, déjame tus datos y me pondré en contacto contigo lo antes posible.
+
+<form action="https://formspree.io/f/YOUR_FORM_ID " method="POST">
+  <label>
+    Tu nombre:
+    <input type="text" name="name" required />
+  </label>
+  <label>
+    Tu correo:
+    <input type="email" name="email" required />
+  </label>
+  <label>
+    Mensaje:
+    <textarea name="message" required></textarea>
+  </label>
+  <button type="submit">Enviar mensaje</button>
+</form>
