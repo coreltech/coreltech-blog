@@ -5,7 +5,7 @@ theme = "basic"
 publishDir = "public"
 
 [params]
-  description = "Blog técnico sobre mantenimiento de hardware, software y redes informáticas."
+  description = "Artículos técnicos sobre mantenimiento de hardware, software y redes informáticas."
   author = "CorelTech Servicios Informáticos"
   keywords = ["mantenimiento", "hardware", "software", "redes", "soporte técnico", "CorelTech"]
 
