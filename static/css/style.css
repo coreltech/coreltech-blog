@@ -28,6 +28,17 @@ header {
   position: relative;
 }
 
+/* Estilo del logo en el header */
+header img {
+  max-width: 80px; /* Tamaño más profesional */
+  height: auto;
+  margin-bottom: 0.5rem;
+  float: left;
+  margin-right: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 header h1,
 header p {
   text-align: left;
@@ -215,14 +226,4 @@ li {
   margin-bottom: 1rem;
 }
 
-/* Estilo del logo en el header */
-header img {
-  max-width: 80px; /* Tamaño más profesional */
-  height: auto;
-  margin-bottom: 0.5rem;
-  float: left;
-  margin-right: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
 
