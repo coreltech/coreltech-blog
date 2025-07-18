@@ -7,11 +7,14 @@
   <meta name="description" content="{{ .Site.Params.description }}">
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+  
+  <!-- Open Graph -->
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Site.Params.description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
+  
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/style.css">
 </head>
