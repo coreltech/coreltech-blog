@@ -6,7 +6,7 @@ draft: false
 
 # Sobre CorelTech
 
-¡Hola! Soy **Agustín Lugo**, técnico informático con años de experiencia en **mantenimiento de hardware, software y redes informáticas**.
+¡Hola! Soy **Coreltech** es una empresa con técnico informático con años de experiencia en **mantenimiento de hardware, software y redes informáticas**.
 
 ## ¿Qué hago?
 
