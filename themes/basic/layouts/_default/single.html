@@ -2,8 +2,18 @@
 
 {{ define "main" }}
   <article>
+    <!-- Imagen del artículo -->
+    {{ if .Params.thumbnail }}
+      <img src="{{ .Params.thumbnail }}" alt="Imagen de {{ .Title }}" class="post-image">
+    {{ end }}
+
+    <!-- Título del artículo -->
     <h1>{{ .Title }}</h1>
+
+    <!-- Fecha -->
     <time>{{ .Date.Format "2 January 2006" }}</time>
+
+    <!-- Contenido del artículo -->
     {{ .Content }}
   </article>
 {{ end }}
