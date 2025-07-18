@@ -10,10 +10,17 @@
     <h2>Últimos artículos técnicos</h2>
     <ul>
       {{ range first 5 .Site.RegularPages }}
-        <li>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          <time>{{ .Date.Format "2 January 2006" }}</time>
-          <p>{{ .Summary }}</p>
+        <li class="post-preview">
+          <a href="{{ .RelPermalink }}">
+            {{ if .Params.thumbnail }}
+              <img src="{{ .Params.thumbnail }}" alt="Miniatura de {{ .Title }}" class="post-thumbnail">
+            {{ else }}
+              <div class="post-thumbnail placeholder"></div>
+            {{ end }}
+            <h3>{{ .Title }}</h3>
+            <p class="post-summary">{{ .Params.summary }}</p>
+            <time>{{ .Date.Format "2 January 2006" }}</time>
+          </a>
         </li>
         <hr>
       {{ end }}
