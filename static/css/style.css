@@ -16,7 +16,7 @@ body {
   padding: 1rem;
 }
 
-/* Header */
+/* Header con logo a la izquierda, título centrado */
 header {
   text-align: center;
   margin-bottom: 2rem;
@@ -26,31 +26,29 @@ header {
   color: white;
   border-radius: 8px;
   position: relative;
+  overflow: hidden;
 }
 
-/* Estilo del logo en el header */
-header img {
-  max-width: 120px; /* Tamaño más profesional */
-  height: auto;
-  margin-bottom: 0.5rem;
-  float: left;
-  margin-right: 1rem;
+/* Logo alineado a la izquierda del header */
+.header-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  max-width: 100px;
+  z-index: 100;
   border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Título y descripción centrados */
 header h1,
 header p {
-  text-align: left;
-  margin: 0;
-  max-width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0.8rem 1.2rem;
   border-radius: 6px;
-}
-
-header {
-  overflow: hidden; /* Limpia el float del logo */
 }
 
 header p {
@@ -143,7 +141,7 @@ article h1 {
 article time {
   display: block;
   font-size: 0.85rem;
-  color: #666;
+  color: #d0e3f7;
   margin-bottom: 1rem;
 }
 
@@ -225,5 +223,3 @@ ul {
 li {
   margin-bottom: 1rem;
 }
-
-
