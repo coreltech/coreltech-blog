@@ -223,3 +223,51 @@ ul {
 li {
   margin-bottom: 1rem;
 }
+
+/* Estilo para la página de inicio */
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .lead {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.latest-posts h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.latest-posts li {
+  margin-bottom: 1.5rem;
+}
+
+.latest-posts h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.latest-posts time {
+  display: block;
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+}
+
+.latest-posts p {
+  color: #444;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
