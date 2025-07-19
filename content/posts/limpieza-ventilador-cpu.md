@@ -1,6 +1,6 @@
 ---
 title: "Limpieza técnica del ventilador de la CPU"
-date: 2025-04-09
+date: 2025-07-13
 draft: false
 categories:
   - hardware
