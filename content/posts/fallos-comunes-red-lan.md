@@ -4,7 +4,7 @@
 ```markdown
 ---
 title: "Fallos comunes en redes LAN y cómo solucionarlos"
-date: 2025-04-05
+date: 2025-07-17
 draft: false
 categories:
   - redes
