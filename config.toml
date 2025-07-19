@@ -2,7 +2,7 @@ baseURL = "https://coreltech-blog.vercel.app"
 languageCode = "es-ES"
 title = "Blog de CorelTech - Soluciones Técnicas"
 theme = "basic"
-publishDir = "public"
+
 
 [params]
   description = "Artículos técnicos sobre mantenimiento de hardware, software y redes informáticas."
@@ -49,5 +49,5 @@ publishDir = "public"
     url = "/contacto/"
     weight = 4
 
- [outputs]
-  home = ["HTML", "RSS"]
+  [outputs]
+  home = ["HTML", "RSS", "JSON"]
