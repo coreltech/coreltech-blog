@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+{{ "<?xml version=\"1.0\" encoding=\"utf-8" }}?>
 <rss version="2.0"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
@@ -12,16 +12,18 @@
   <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
   <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
 
-  {{ range first 10 .Site.RegularPages.ByDate.Reverse }}
+  {{ range $index, $page := .Site.RegularPages.ByDate.Reverse }}
   <item>
-    <title>{{ .Title }}</title>
-    <link>{{ .Permalink }}</link>
-    <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
-    <guid>{{ .Permalink }}</guid>
-    <description>{{ .Summary | html }}</description>
-    <content:encoded>{{ .Content | html }}</content:encoded>
-    <enclosure url="{{ .RelPermalink }}{{ .Params.thumbnail }}" type="image/webp" />
+    <title>{{ $page.Title }}</title>
+    <link>{{ $page.RelPermalink }}</link>
+    <pubDate>{{ $page.Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+    <guid>{{ $page.RelPermalink }}</guid>
+    <description>{{ $page.Summary | html }}</description>
+    <content:encoded>{{ $page.Content | html }}</content:encoded>
+    <enclosure url="{{ $page.RelPermalink }}{{ $page.Params.thumbnail }}" type="image/webp" />
   </item>
+  {{ if lt $index 2 }}
+  {{ end }}
   {{ end }}
 </channel>
 </rss>
