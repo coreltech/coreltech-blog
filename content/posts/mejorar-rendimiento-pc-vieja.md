@@ -1,6 +1,6 @@
 ---
 title: "Cómo mejorar el rendimiento de una PC vieja"
-date: 2025-04-08
+date: 2025-07-14
 draft: false
 categories:
   - hardware
