@@ -20,6 +20,7 @@
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | html }}</description>
       <content:encoded>{{ .Content | html }}</content:encoded>
+      <enclosure url="{{ .Params.thumbnail }}" type="image/webp" />
     </item>
     {{ end }}
   </channel>
