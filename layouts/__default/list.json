@@ -1,0 +1,10 @@
+[
+  {{ range first 3 .Site.RegularPages.ByDate.Reverse }}
+    {
+      "title": "{{ .Title }}",
+      "link": "{{ .RelPermalink }}",
+      "date": "{{ .Date.Format "2006-01-02" }}",
+      "thumbnail": "{{ if .Params.thumbnail }}{{ .RelPermalink }}{{ .Params.thumbnail }}{{ end }}"
+    }{{ if not (lastindex . $) }},{{ end }}
+  {{ end }}
+]
