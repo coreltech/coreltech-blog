@@ -3,7 +3,7 @@
 ```markdown
 ---
 title: "Cómo mejorar la señal WiFi en tu casa o negocio"
-date: 2025-04-04
+date: 2025-07-18
 draft: false
 categories:
   - redes
