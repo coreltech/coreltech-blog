@@ -3,7 +3,7 @@
 ```markdown
 ---
 title: "Errores comunes de actualizaciones de Windows y cómo solucionarlos"
-date: 2025-04-06
+date: 2025-07-15
 draft: false
 categories:
   - software
