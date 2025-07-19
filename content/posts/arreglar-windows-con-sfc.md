@@ -1,6 +1,6 @@
 ---
 title: "Cómo arreglar Windows con 2 comandos"
-date: 2025-04-07
+date: 2025-07-16
 draft: false
 categories:
   - software
