@@ -1,10 +1,10 @@
 [
-  {{ range first 3 .Site.RegularPages.ByDate.Reverse }}
+  {{ range $index, $page := .Site.RegularPages.ByDate.Reverse }}
     {
-      "title": "{{ .Title }}",
-      "link": "{{ .RelPermalink }}",
-      "date": "{{ .Date.Format "2006-01-02" }}",
-      "thumbnail": "{{ if .Params.thumbnail }}{{ .RelPermalink }}{{ .Params.thumbnail }}{{ end }}"
-    }{{ if not (lastindex . $) }},{{ end }}
+      "title": "{{ $page.Title }}",
+      "link": "{{ $page.RelPermalink }}",
+      "date": "{{ $page.Date.Format "2006-01-02" }}",
+      "thumbnail": "{{ if $page.Params.thumbnail }}{{ $page.RelPermalink }}{{ $page.Params.thumbnail }}{{ end }}"
+    }{{ if lt $index 2 }},{{ end }}
   {{ end }}
 ]
