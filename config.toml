@@ -9,6 +9,7 @@ publishDir = "public"
   author = "CorelTech Servicios Informáticos"
   keywords = ["mantenimiento", "hardware", "software", "redes", "soporte técnico", "CorelTech"]
 
+
 [menu]
   [[menu.main]]
     name = "Inicio"
