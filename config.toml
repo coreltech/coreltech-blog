@@ -48,5 +48,5 @@ publishDir = "public"
     url = "/contacto/"
     weight = 4
 
-    [outputs]
-  home = ["HTML", "RSS"]
+  [outputs]
+  home = ["HTML", "RSS", "JSON"]
