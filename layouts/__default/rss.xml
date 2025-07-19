@@ -8,8 +8,8 @@
   <title>{{ .Site.Title }}</title>
   <link>{{ .Permalink }}</link>
   <description>Últimas publicaciones de {{ .Site.Title }}</description>
-  <generator>Hugo -- gohugo.io</generator>
-  <language>es-VE</language>
+  <generator>Coreltech IT Solutions</generator>
+  <language>es</language>
   <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
   <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
 
@@ -21,6 +21,7 @@
     <guid>{{ .Permalink }}</guid>
     <description>{{ .Summary | html }}</description>
     <content:encoded>{{ .Content | html }}</content:encoded>
+    
     {{ if .Params.thumbnail }}
     <media:content url="{{ .RelPermalink }}{{ .Params.thumbnail }}" type="image/webp" />
     {{ end }}
