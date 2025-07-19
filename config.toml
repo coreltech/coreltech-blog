@@ -47,3 +47,6 @@ publishDir = "public"
     name = "Contacto"
     url = "/contacto/"
     weight = 4
+
+    [outputs]
+  home = ["HTML", "RSS"]
