@@ -1,6 +1,6 @@
 ---
 title: "Bienvenido al Blog de CorelTech"
-date: 2025-04-10
+date: 2025-07-12
 draft: false
 thumbnail: "/images/Corel_logo1.webp"
 summary: "¿Por qué este blog es útil para ti? Te explico cómo te ayudará en tu día a día técnico"
