@@ -1,9 +1,0 @@
-{
-  "build": {
-    "command": "echo 'No se necesita construir nada'",
-    "output": "."
-  },
-  "dev": {
-    "command": "npx serve"
-  }
-}
