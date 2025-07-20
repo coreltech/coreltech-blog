@@ -1,9 +1,11 @@
 {
   "build": {
-    "command": "echo 'No se necesita construir nada'",
+    "command": "echo 'No se necesita build'",
     "output": "."
   },
   "dev": {
-    "command": "npx serve"
+    "command": "npx serve",
+    "port": 3000,
+    "environment": {}
   }
 }
