@@ -1,2 +1,0 @@
-# coreltech-blog
-blog coreltech
