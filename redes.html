@@ -16,20 +16,19 @@
 
   <!-- 🧭 Menú -->
   <header class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo">
-        <img src="assets/img/logo.webp" alt="Logo Coreltech" width="150">
-      </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="hardware.html">Hardware</a></li>
-          <li><a href="software.html">Software</a></li>
-          <li><a href="redes.html" class="active">Redes</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <a href="index.html" class="logo">Coreltech IT</a>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="hardware.html">Hardware</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="redes.html">Redes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- 🎯 Hero único para Redes -->
   <section class="hero" data-category="redes">
@@ -134,5 +133,24 @@
 
 <!-- 🧠 Cargar fondo del Hero -->
 <script src="assets/js/hero-background.js"></script>
+
+<!-- 🧠 Menú móvil -->
+<script>
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Cierra el menú al hacer clic en un enlace
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+  }
+</script>
 </body>
 </html>
