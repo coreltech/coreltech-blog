@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artículos sobre redes informáticas en Coreltech Blog">
+  <title>Redes - Coreltech Blog</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Estilo principal -->
+  <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body class="category-page redes">
+
+  <!-- 🧭 Menú -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Logo Coreltech" width="150">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="redes.html" class="active">Redes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎯 Hero único para Redes -->
+  <section class="hero" data-category="redes">
+  <div class="container">
+    <h1>Redes</h1>
+    <p>Consejos, guías y artículos sobre redes informáticas, conectividad y seguridad de redes empresariales y caseras.</p>
+  </div>
+</section>
+
+  <!-- 📰 Artículos de Redes -->
+  <section class="posts">
+    <div class="container">
+      <h2>Últimos artículos de Redes</h2>
+      <div id="category-posts" class="post-grid"></div>
+    </div>
+  </section>
+
+  <!-- 📞 Botón de WhatsApp -->
+  <a href=" https://wa.me/584145828186 " target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
+    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
+  </a>
+
+  <!-- 📌 Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <p>Soluciones IT profesionales, rápidas y confiables.</p>
+        </div>
+        <div class="footer-contact">
+          <p><strong>Email:</strong> <a href="mailto:coreltech.soluciones@gmail.com">coreltech.soluciones@gmail.com</a></p>
+          <p><strong>Teléfono:</strong> +58 414 582 8186</p>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/coreltechsoluciones " target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/ @coreltech.ve" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🧠 Script para cargar artículos de redes -->
+  <script>
+    fetch("feed/posts.json")
+      .then(res => res.json())
+      .then(posts => {
+        const container = document.getElementById("category-posts");
+        const redesPosts = posts.filter(post => post.category === "redes");
+
+        redesPosts.forEach(post => {
+          const card = document.createElement("div");
+          card.className = "post-card";
+
+          const thumbnail = post.thumbnail ? post.thumbnail : "assets/img/blog-article-default.webp";
+
+          card.innerHTML = `
+            <img src="${thumbnail}" alt="${post.title}" class="post-img">
+            <h3>${post.title}</h3>
+            <p><em>${post.date}</em></p>
+            <p>${post.summary}</p>
+            <a href="${post.url}" class="btn-secondary">Leer más</a>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script>
+
+  <!-- 🧠 Cargar imagen de fondo del Hero -->
+<script>
+  const hero = document.querySelector(".hero");
+  const category = hero.getAttribute("data-category");
+
+  const heroImages = {
+    hardware: "assets/img/hero-hardware.webp",
+    software: "assets/img/hero-software.webp",
+    redes: "assets/img/hero-redes.webp",
+    blog: "assets/img/hero-blog-default.webp"
+  };
+
+  if (heroImages[category]) {
+    const img = new Image();
+    img.src = heroImages[category];
+
+    img.onload = () => {
+      hero.style.backgroundImage = `url('${heroImages[category]}')`;
+      hero.style.backgroundColor = "transparent";
+    };
+
+    img.onerror = () => {
+      hero.style.backgroundImage = "none";
+      hero.style.backgroundColor = "var(--color-primary)";
+    };
+  }
+</script>
+
+<!-- 🧠 Cargar fondo del Hero -->
+<script src="assets/js/hero-background.js"></script>
+</body>
+</html>
