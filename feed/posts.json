@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Cómo limpiar el ventilador de la CPU sin dañar tu PC",
+    "date": "2025-07-18",
+    "thumbnail": "assets/img/articulo1.webp",
+    "summary": "Guía paso a paso para limpiar el ventilador de la CPU sin cambiar de equipo",
+    "url": "articulo1.html",
+    "category": "hardware"
+  },
+  {
+    "title": "Cómo mejorar la señal WiFi en tu casa o negocio",
+    "date": "2025-07-17",
+    "thumbnail": "assets/img/articulo2.webp",
+    "summary": "Guía para mejorar la señal WiFi sin cambiar de router",
+    "url": "articulo2.html",
+    "category": "redes"
+  },
+  {
+    "title": "Errores comunes de actualizaciones de Windows y cómo solucionarlos",
+    "date": "2025-07-16",
+    "thumbnail": "assets/img/articulo3.webp",
+    "summary": "Errores comunes de actualizaciones de Windows y cómo solucionarlos paso a paso",
+    "url": "articulo3.html",
+    "category": "software"
+  }
+]
