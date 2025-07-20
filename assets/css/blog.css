@@ -1,0 +1,348 @@
+/* ========================
+   = Reset básico
+   ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================
+   = Variables de estilo
+   ======================== */
+:root {
+  --color-primary: #003366;
+  --color-white: #fff;
+  --color-light: #f9f9f9;
+  --font-main: 'Poppins', sans-serif;
+  --font-title: 1.8rem;
+  --font-subtitle: 1.2rem;
+  --font-text: 1rem;
+  --font-small: 0.9rem;
+}
+
+/* ========================
+   = Estilos generales
+   ======================== */
+body {
+  font-family: var(--font-main);
+  color: #333;
+  background-color: var(--color-light);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========================
+   = Hero dinámico
+   ======================== */
+.hero {
+  position: relative;
+  padding: 5rem 0;
+  text-align: center;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 0.3s ease;
+}
+
+/* Capa oscura para mejorar el contraste del texto */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Capa oscura semitransparente */
+  z-index: 1;
+}
+
+/* Asegura que el contenido del hero esté encima */
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: var(--font-subtitle);
+  margin-bottom: 2rem;
+}
+
+/* Fondo por defecto por categoría */
+.hero[data-category="hardware"] {
+  background-color: #003366;
+}
+
+.hero[data-category="software"] {
+  background-color: #0066cc;
+}
+
+.hero[data-category="redes"] {
+  background-color: #0099cc;
+}
+
+.hero[data-category="blog"] {
+  background-color: #003366;
+}
+
+/* ========================
+   = Artículos recientes
+   ======================== */
+.posts {
+  padding: 4rem 0;
+  background-color: var(--color-white);
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.post-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.post-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.post-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.post-card p {
+  font-size: var(--font-text);
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.btn-secondary {
+  background-color: #ddd;
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+  background-color: #ccc;
+}
+
+/* ========================
+   = Menú de navegación
+   ======================== */
+.navbar {
+  background-color: #f0f8ff;
+  padding: 1rem 0;
+}
+
+.navbar .logo img {
+  vertical-align: middle;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a.active {
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  color: #004080;
+}
+
+/* ========================
+   = Artículo completo
+   ======================== */
+.post-full {
+  padding: 4rem 0;
+  background-color: var(--color-white);
+}
+
+.post-full-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+/* ========================
+   = Footer
+   ======================== */
+.footer {
+  padding: 4rem 0;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.footer-logo p {
+  margin-top: 0.5rem;
+  font-size: var(--font-small);
+}
+
+.footer-contact p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact a {
+  color: var(--color-white);
+}
+
+.footer-social h4 {
+  margin-bottom: 1rem;
+}
+
+.footer-social ul {
+  list-style: none;
+}
+
+.footer-social ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-social ul li a {
+  color: var(--color-white);
+  transition: color 0.3s ease;
+}
+
+.footer-social ul li a:hover {
+  color: #ff6600;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: var(--font-small);
+  color: #bbb;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+/* ========================
+   = Botón de WhatsApp
+   ======================== */
+.whatsapp-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-button img {
+  width: 30px;
+  height: 30px;
+}
+
+/* ========================
+   = Responsive
+   ======================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--color-white);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .post-img {
+    height: 140px;
+  }
+}
