@@ -5,7 +5,7 @@
     "thumbnail": "../assets/img/articulo-hardware.webp",
     "summary": "2025-08-10",
     "url": "articulos/articulo-hardware.html",
-    "category": "blog"
+    "category": "hardware"
   },
   {
     "title": "Errores comunes de actualizaciones de Windows",
@@ -13,7 +13,7 @@
     "thumbnail": "../assets/img/articulo-software.webp",
     "summary": "2025-08-09",
     "url": "articulos/articulo-software.html",
-    "category": "blog"
+    "category": "software"
   },
   {
     "title": "Cómo mejorar la señal WiFi sin cambiar de router",
@@ -21,6 +21,6 @@
     "thumbnail": "../assets/img/articulo-redes.webp",
     "summary": "2025-08-08",
     "url": "articulos/articulo-redes.html",
-    "category": "blog"
+    "category": "redes"
   }
 ]
