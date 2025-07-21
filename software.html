@@ -17,14 +17,13 @@
   <!-- 🧭 Menú -->
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo">
-        <img src="assets/img/logo.webp" alt="Logo Coreltech" width="150">
-      </a>
+      <a href="index.html" class="logo">Coreltech IT</a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="hardware.html">Hardware</a></li>
-          <li><a href="software.html" class="active">Software</a></li>
+          <li><a href="software.html">Software</a></li>
           <li><a href="redes.html">Redes</a></li>
         </ul>
       </nav>
@@ -33,11 +32,11 @@
 
   <!-- 🎯 Hero único para Software -->
   <section class="hero" data-category="software">
-  <div class="container">
-    <h1>Software</h1>
-    <p>Errores, actualizaciones, herramientas y optimización de software. Todo lo que necesitas saber sobre sistemas y programas.</p>
-  </div>
-</section>
+    <div class="container">
+      <h1>Software</h1>
+      <p>Errores, actualizaciones, herramientas y optimización de software. Todo lo que necesitas saber sobre sistemas y programas.</p>
+    </div>
+  </section>
 
   <!-- 📰 Artículos de Software -->
   <section class="posts">
@@ -78,7 +77,7 @@
     </div>
   </footer>
 
-  <!-- 🧠 Script para cargar artículos de software -->
+  <!-- 🧠 Script para cargar artículos desde feed/posts.json -->
   <script>
     fetch("feed/posts.json")
       .then(res => res.json())
@@ -90,7 +89,7 @@
           const card = document.createElement("div");
           card.className = "post-card";
 
-          const thumbnail = post.thumbnail ? post.thumbnail : "assets/img/blog-article-default.webp";
+          const thumbnail = post.thumbnail || "assets/img/blog-article-default.webp";
 
           card.innerHTML = `
             <img src="${thumbnail}" alt="${post.title}" class="post-img">
@@ -101,38 +100,60 @@
           `;
           container.appendChild(card);
         });
+      })
+      .catch(err => {
+        console.error("❌ Error al cargar artículos de software:", err);
       });
   </script>
 
   <!-- 🧠 Cargar imagen de fondo del Hero -->
-<script>
-  const hero = document.querySelector(".hero");
-  const category = hero.getAttribute("data-category");
+  <script>
+    const hero = document.querySelector(".hero");
+    if (hero) {
+      const category = hero.getAttribute("data-category");
 
-  const heroImages = {
-    hardware: "assets/img/hero-hardware.webp",
-    software: "assets/img/hero-software.webp",
-    redes: "assets/img/hero-redes.webp",
-    blog: "assets/img/hero-blog-default.webp"
-  };
+      const heroImages = {
+        hardware: "assets/img/hero-hardware.webp",
+        software: "assets/img/hero-software.webp",
+        redes: "assets/img/hero-redes.webp",
+        blog: "assets/img/hero-blog-default.webp"
+      };
 
-  if (heroImages[category]) {
-    const img = new Image();
-    img.src = heroImages[category];
+      if (heroImages[category]) {
+        const img = new Image();
+        img.src = heroImages[category];
 
-    img.onload = () => {
-      hero.style.backgroundImage = `url('${heroImages[category]}')`;
-      hero.style.backgroundColor = "transparent";
-    };
+        img.onload = () => {
+          hero.style.backgroundImage = `url('${heroImages[category]}')`;
+          hero.style.backgroundColor = "transparent";
+        };
 
-    img.onerror = () => {
-      hero.style.backgroundImage = "none";
-      hero.style.backgroundColor = "var(--color-primary)";
-    };
-  }
-</script>
+        img.onerror = () => {
+          hero.style.backgroundImage = "none";
+          hero.style.backgroundColor = "var(--color-primary)";
+        };
+      }
+    }
+  </script>
 
-<!-- 🧠 Cargar fondo del Hero -->
-<script src="assets/js/hero-background.js"></script>
+  <!-- 🧠 Menú móvil -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Cierra el menú al hacer clic en un enlace
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  </script>
+
 </body>
 </html>
