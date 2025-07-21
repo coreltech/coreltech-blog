@@ -30,11 +30,11 @@
     </div>
   </header>
 
-  <!-- 🎯 Hero único para Hardware -->
+  <!-- 🎯 Hero -->
   <section class="hero" data-category="hardware">
     <div class="container">
       <h1>Hardware</h1>
-      <p>Guías, mantenimiento y reparación de equipos físicos. Todo sobre componentes, limpieza y optimización de hardware.</p>
+      <p>Guía, mantenimiento y reparación de equipos físicos. Componentes, limpieza y optimización</p>
     </div>
   </section>
 
@@ -60,7 +60,7 @@
           <p>Soluciones IT profesionales, rápidas y confiables.</p>
         </div>
         <div class="footer-contact">
-          <p><strong>Email:</strong> <a href="mailto:coreltech.soluciones@gmail.com">coreltech.soluciones@gmail.com</a></p>
+          <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
           <p><strong>Teléfono:</strong> +58 414 582 8186</p>
         </div>
         <div class="footer-social">
@@ -77,7 +77,7 @@
     </div>
   </footer>
 
-  <!-- 🧠 Script para cargar artículos desde feed/posts.json -->
+  <!-- 🧠 Script para cargar artículos -->
   <script>
     fetch("feed/posts.json")
       .then(res => res.json())
@@ -100,9 +100,6 @@
           `;
           container.appendChild(card);
         });
-      })
-      .catch(err => {
-        console.error("❌ Error al cargar artículos de hardware:", err);
       });
   </script>
 
@@ -146,7 +143,6 @@
         navLinks.classList.toggle("active");
       });
 
-      // Cierra el menú al hacer clic en un enlace
       document.querySelectorAll(".nav-links a").forEach(link => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
