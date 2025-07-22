@@ -67,6 +67,11 @@ a:hover {
   background-position: center;
   background-repeat: no-repeat;
   transition: background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
 }
 
 /* Capa oscura para mejorar el contraste del texto */
@@ -85,6 +90,7 @@ a:hover {
 .hero .container {
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 
 .hero h1 {
@@ -310,11 +316,52 @@ a:hover {
 }
 
 /* ========================
-   = Responsive
+   = Menú móvil
    ======================== */
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* ========================
+   = Estilos del menú
+   ======================== */
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar .logo img {
+  height: 32px;
+  vertical-align: middle;
+}
+
+/* ========================
+   = Menú en móvil
+   ======================== */
+
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 0;
+    min-height: 300px;
   }
 
   .hero h1 {
@@ -325,24 +372,67 @@ a:hover {
     font-size: 1rem;
   }
 
+  .menu-toggle {
+    display: block;
+  }
+
   .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: var(--color-white);
     position: absolute;
     top: 60px;
-    right: 0;
+    right: 1rem;
     width: 200px;
-    padding: 1rem;
+    background-color: var(--color-white);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
     display: none;
+    z-index: 998;
   }
 
   .nav-links.active {
     display: flex;
   }
 
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links li a:hover {
+    color: #004080;
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
   .post-img {
     height: 140px;
   }
+}
+
+.article-meta {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f0f8ff;
+  border-left: 4px solid #003366;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.meta-img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
 }
