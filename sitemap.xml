@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
   <url>
-    <loc>https://coreltech-blog.vercel.app </loc>
-    <lastmod>2025-07-18</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://coreltech-blog.vercel.app /</loc>
+    <lastmod>2025-07-20</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://coreltech-blog.vercel.app/hardware.html </loc>
-    <lastmod>2025-07-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://coreltech-blog.vercel.app /hardware.html</loc>
+    <lastmod>2025-07-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coreltech-blog.vercel.app/software.html </loc>
-    <lastmod>2025-07-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://coreltech-blog.vercel.app /software.html</loc>
+    <lastmod>2025-07-20</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coreltech-blog.vercel.app/redes.html </loc>
-    <lastmod>2025-07-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://coreltech-blog.vercel.app /redes.html</loc>
+    <lastmod>2025-07-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreltech-blog.vercel.app /articulos/articulo-hardware.html</loc>
+    <lastmod>2025-07-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreltech-blog.vercel.app /articulos/articulo-redes.html</loc>
+    <lastmod>2025-07-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreltech-blog.vercel.app /articulos/articulo-software.html</loc>
+    <lastmod>2025-07-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreltech-blog.vercel.app /articulos/articulo1.html</loc>
+    <lastmod>2025-07-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://coreltech-blog.vercel.app /articulos/articulo4.html</loc>
+    <lastmod>2025-07-20</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

@@ -20,7 +20,9 @@
   <!-- 🧭 Menú -->
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo">Coreltech IT</a>
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="150" />
+      </a>
       <button class="menu-toggle" aria-label="Abrir menú">☰</button>
       <nav>
         <ul class="nav-links">
@@ -59,7 +61,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="170">
           <p>Soluciones IT profesionales, rápidas y confiables.</p>
         </div>
         <div class="footer-contact">
@@ -80,7 +82,7 @@
     </div>
   </footer>
 
-  <!-- 🧠 Script para cargar artículos desde feed/posts.json -->
+  <!-- 🧠 Script para cargar artículos -->
   <script>
     fetch("feed/posts.json")
       .then(res => res.json())
@@ -157,6 +159,8 @@
       });
     }
   </script>
+  <!-- 🧠 Menú móvil -->
+<script src="assets/js/menu.js"></script>
 
 </body>
 </html>

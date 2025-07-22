@@ -3,38 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Artículos sobre hardware en Coreltech Blog">
+  <meta name="description" content="Guía sobre hardware - Coreltech Blog">
   <title>Hardware - Coreltech Blog</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-  <!-- Estilo principal -->
   <link rel="stylesheet" href="assets/css/blog.css">
 </head>
 <body class="category-page hardware">
 
   <!-- 🧭 Menú -->
   <header class="navbar">
-    <div class="container">
-      <a href="index.html" class="logo">Coreltech IT</a>
-      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="hardware.html">Hardware</a></li>
-          <li><a href="software.html">Software</a></li>
-          <li><a href="redes.html">Redes</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="hardware.html">Hardware</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="redes.html">Redes</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- 🎯 Hero -->
   <section class="hero" data-category="hardware">
     <div class="container">
       <h1>Hardware</h1>
-      <p>Guía, mantenimiento y reparación de equipos físicos. Componentes, limpieza y optimización</p>
+      <p>Guías, mantenimiento y reparación de equipos físicos. Todo sobre componentes, limpieza y optimización</p>
     </div>
   </section>
 
@@ -48,7 +49,7 @@
 
   <!-- 📞 Botón de WhatsApp -->
   <a href=" https://wa.me/584145828186 " target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
-    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
+    <img src="../assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
 
   <!-- 📌 Footer -->
@@ -56,7 +57,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <img src="../assets/img/logo.webp" alt="Logo Coreltech" width="130">
           <p>Soluciones IT profesionales, rápidas y confiables.</p>
         </div>
         <div class="footer-contact">
@@ -79,7 +80,7 @@
 
   <!-- 🧠 Script para cargar artículos -->
   <script>
-    fetch("feed/posts.json")
+    fetch("../feed/posts.json")
       .then(res => res.json())
       .then(posts => {
         const container = document.getElementById("category-posts");
@@ -89,7 +90,7 @@
           const card = document.createElement("div");
           card.className = "post-card";
 
-          const thumbnail = post.thumbnail || "assets/img/blog-article-default.webp";
+          const thumbnail = post.thumbnail || "../assets/img/blog-article-default.webp";
 
           card.innerHTML = `
             <img src="${thumbnail}" alt="${post.title}" class="post-img">
@@ -100,6 +101,9 @@
           `;
           container.appendChild(card);
         });
+      })
+      .catch(err => {
+        console.error("❌ Error al cargar artículos de hardware:", err);
       });
   </script>
 
@@ -110,10 +114,10 @@
       const category = hero.getAttribute("data-category");
 
       const heroImages = {
-        hardware: "assets/img/hero-hardware.webp",
-        software: "assets/img/hero-software.webp",
-        redes: "assets/img/hero-redes.webp",
-        blog: "assets/img/hero-blog-default.webp"
+        hardware: "../assets/img/hero-hardware.webp",
+        software: "../assets/img/hero-software.webp",
+        redes: "../assets/img/hero-redes.webp",
+        blog: "../assets/img/hero-blog-default.webp"
       };
 
       if (heroImages[category]) {
@@ -134,22 +138,7 @@
   </script>
 
   <!-- 🧠 Menú móvil -->
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-
-      document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-        });
-      });
-    }
-  </script>
+<script src="assets/js/menu.js"></script>
 
 </body>
 </html>
