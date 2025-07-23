@@ -1,74 +1,32 @@
 [
   {
-    "title": "Cómo limpiar tu PC de basura y acelerar Windows en 5 minutos",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/articulo-limpieza-pc.webp",
-    "summary": "Guía rápida para eliminar archivos temporales, liberar espacio y mejorar el rendimiento de tu computadora sin instalar programas.",
-    "url": "articulos/articulo-c-mo-limpiar-tu-pc-de-basura-y-acelerar-windows-en-5-minutos.html",
+    "title": "Todo lo que Necesitas Saber sobre Hardware",
+    "author": "Equipo Coreltech",
+    "readingTime": "4 min",
+    "date": "23 de julio de 2025",
+    "thumbnail": "assets/img/hero-hardware.webp",
+    "summary": "Descubre cómo mantener, reparar y optimizar tus dispositivos físicos. Aquí encontrarás guías prácticas, consejos de mantenimiento y trucos que solo los expertos conocen.",
+    "url": "articulos/articulo-todo-lo-que-necesitas-saber-sobre-hardware.html",
+    "category": "hardware"
+  },
+  {
+    "title": "El Mundo del Software, Explicado para Todos",
+    "author": "Equipo Coreltech",
+    "readingTime": "4 min",
+    "date": "23 de julio de 2025",
+    "thumbnail": "assets/img/hero-software.webp",
+    "summary": "Desde errores comunes hasta optimización avanzada, aquí aprenderás a sacarle el máximo provecho a tus programas y sistemas operativos.",
+    "url": "articulos/articulo-el-mundo-del-software-explicado-para-todos.html",
     "category": "software"
   },
   {
-    "title": "Cómo mejorar la señal de Wi-Fi en casa sin comprar un nuevo router",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/articulo-wifi.webp",
-    "summary": "Guía práctica para mejorar la cobertura del Wi-Fi en casa usando técnicas simples, sin necesidad de cambiar el router.",
-    "url": "articulos/articulo-c-mo-mejorar-la-se-al-de-wi-fi-en-casa-sin-comprar-un-nuevo-router.html",
+    "title": "Conectado al Mundo: Todo sobre Redes",
+    "author": "Equipo Coreltech",
+    "readingTime": "4 min",
+    "date": "23 de julio de 2025",
+    "thumbnail": "assets/img/hero-redes.webp",
+    "summary": "Desde tu Wi-Fi en casa hasta redes empresariales, aquí encontrarás guías claras para entender, mejorar y proteger tu conexión.",
+    "url": "articulos/articulo-conectado-al-mundo-todo-sobre-redes.html",
     "category": "redes"
-  },
-  {
-    "title": "primer artículo automatizadoprimer artículo automatizado",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/articulo-prueba.webp",
-    "summary": "Artículo sobre software",
-    "url": "articulos/articulo-primer-art-culo-automatizadoprimer-art-culo-automatizado.html",
-    "category": "software"
-  },
-  {
-    "title": "prueba1",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "summary": "Artículo sobre software",
-    "url": "articulos/articulo-prueba1.html",
-    "category": "software"
-  },
-  {
-    "title": "Cómo limpiar el ventilador de la CPU",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo-hardware.webp",
-    "summary": "Artículo sobre hardware",
-    "url": "articulos/articulo-hardware.html",
-    "category": "hardware"
-  },
-  {
-    "title": "Cómo mejorar la señal WiFi sin cambiar de router",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo-redes.webp",
-    "summary": "Artículo sobre redes",
-    "url": "articulos/articulo-redes.html",
-    "category": "redes"
-  },
-  {
-    "title": "Errores comunes de actualizaciones de Windows",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo-software.webp",
-    "summary": "Artículo sobre software",
-    "url": "articulos/articulo-software.html",
-    "category": "software"
-  },
-  {
-    "title": "Cómo limpiar el ventilador de la CPU",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "summary": "Artículo sobre hardware",
-    "url": "articulos/articulo1.html",
-    "category": "hardware"
-  },
-  {
-    "title": "Cómo limpiar un disco duro sin perder datos",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo4.webp",
-    "summary": "Artículo sobre hardware",
-    "url": "articulos/articulo4.html",
-    "category": "hardware"
   }
 ]
