@@ -5,31 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Guías sobre software - Coreltech Blog">
   <title>Software - Coreltech Blog</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+  <!-- Google Fonts: Estilo revista -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Estilo principal -->
   <link rel="stylesheet" href="assets/css/blog.css">
 </head>
 <body class="category-page software">
-
   <!-- 🧭 Menú -->
   <header class="navbar">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
-    </a>
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="hardware.html">Hardware</a></li>
-        <li><a href="software.html">Software</a></li>
-        <li><a href="redes.html">Redes</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="redes.html">Redes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <!-- 🎯 Hero -->
   <section class="hero" data-category="software">
@@ -43,13 +41,13 @@
   <section class="posts">
     <div class="container">
       <h2>Últimos artículos de Software</h2>
-      <div id="category-posts" class="post-grid"></div>
+      <div id="category-posts" class="magazine-grid-small"></div>
     </div>
   </section>
 
   <!-- 📞 Botón de WhatsApp -->
-  <a href=" https://wa.me/584145828186 " target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
-    <img src="../assets/img/whatsapp-icon.webp" alt="WhatsApp">
+  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
+    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
 
   <!-- 📌 Footer -->
@@ -57,8 +55,8 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="../assets/img/logo.webp" alt="Logo Coreltech" width="200">
-          <p>Soluciones IT profesionales, rápidas y confiables.</p>
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <p>Revista digital sobre tecnología, desarrollo y soluciones IT.</p>
         </div>
         <div class="footer-contact">
           <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
@@ -67,8 +65,8 @@
         <div class="footer-social">
           <h4>Síguenos</h4>
           <ul>
-            <li><a href="https://www.instagram.com/coreltechsoluciones " target="_blank">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/ @coreltech.ve" target="_blank">TikTok</a></li>
+            <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
           </ul>
         </div>
       </div>
@@ -78,66 +76,79 @@
     </div>
   </footer>
 
-  <!-- 🧠 Script para cargar artículos -->
+  <!-- 🧠 Cargar artículos de software -->
   <script>
-    fetch("../feed/posts.json")
+    fetch("feed/posts.json")
       .then(res => res.json())
       .then(posts => {
         const container = document.getElementById("category-posts");
         const softwarePosts = posts.filter(post => post.category === "software");
-
         softwarePosts.forEach(post => {
-          const card = document.createElement("div");
-          card.className = "post-card";
-
-          const thumbnail = post.thumbnail || "../assets/img/blog-article-default.webp";
-
-          card.innerHTML = `
-            <img src="${thumbnail}" alt="${post.title}" class="post-img">
-            <h3>${post.title}</h3>
-            <p><em>${post.date}</em></p>
-            <p>${post.summary}</p>
-            <a href="${post.url}" class="btn-secondary">Leer más</a>
+          const article = document.createElement("article");
+          article.classList.add("magazine-card");
+          article.innerHTML = `
+            <img src="${post.thumbnail || 'assets/img/blog-article-default.webp'}" alt="${post.title}" class="card-img">
+            <div class="card-body">
+              <span class="tag">${post.category}</span>
+              <h3>${post.title}</h3>
+              <div class="post-meta small">
+                <span>Por <strong>${post.author || 'Redacción'}</strong></span>
+                <span>•</span>
+                <span>${post.date}</span>
+                <span>•</span>
+                <span>${post.readingTime || '3 min'}</span>
+              </div>
+              <a href="${post.url}" class="read-more">Leer más →</a>
+            </div>
           `;
-          container.appendChild(card);
+          container.appendChild(article);
         });
       })
-      .catch(err => {
-        console.error("❌ Error al cargar artículos de software:", err);
-      });
+      .catch(err => console.error("❌ Error al cargar artículos de software:", err));
   </script>
 
-  <!-- 🧠 Cargar imagen de fondo del Hero -->
+  <!-- 🧠 Cargar fondo del Hero -->
   <script>
     const hero = document.querySelector(".hero");
     if (hero) {
       const category = hero.getAttribute("data-category");
-
       const heroImages = {
-        hardware: "../assets/img/hero-hardware.webp",
-        software: "../assets/img/hero-software.webp",
-        redes: "../assets/img/hero-redes.webp",
-        blog: "../assets/img/hero-blog-default.webp"
+        hardware: "assets/img/hero-hardware.webp",
+        software: "assets/img/hero-software.webp",
+        redes: "assets/img/hero-redes.webp",
+        blog: "assets/img/hero-blog-default.webp"
       };
-
       if (heroImages[category]) {
         const img = new Image();
         img.src = heroImages[category];
-
         img.onload = () => {
           hero.style.backgroundImage = `url('${heroImages[category]}')`;
           hero.style.backgroundColor = "transparent";
         };
-
         img.onerror = () => {
           hero.style.backgroundImage = "none";
-          hero.style.backgroundColor = "var(--color-primary)";
+          hero.style.backgroundColor = "#0070f3";
         };
       }
     }
   </script>
 
   <!-- 🧠 Menú móvil -->
-<script src="assets/js/menu.js"></script>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  </script>
+
+  <script src="assets/js/load-posts.js"></script>
 </body>
 </html>
