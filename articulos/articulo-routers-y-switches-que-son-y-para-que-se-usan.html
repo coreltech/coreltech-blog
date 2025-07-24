@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conoce las diferencias entre routers y switches, dos componentes esenciales en redes de computadoras." />
+  <title>Routers y Switches: ¿Qué son y para qué se usan? - Coreltech Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/blog.css"> <!-- Asegúrate de que esta ruta sea correcta -->
+  <link rel="icon" href="/assets/img/favicon.webp" type="image/webp">
+</head>
+<body class="category-page redes">
+
+  <!-- 🧭 Menú -->
+  <header class="navbar">
+    <div class="container">
+      <a href="/index.html" class="logo">
+        <img src="/assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/hardware.html">Hardware</a></li>
+          <li><a href="/software.html">Software</a></li>
+          <li><a href="/redes.html">Redes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎯 Hero -->
+  <section class="hero" data-category="redes">
+    <div class="container">
+      <h1>Routers y Switches: ¿Qué son y para qué se usan?</h1>
+      <p>Conoce las diferencias entre routers y switches, dos componentes esenciales en redes de computadoras.</p>
+    </div>
+  </section>
+
+  <!-- 📄 Artículo -->
+  <section class="post-full">
+    <div class="container">
+      <!-- Imagen del artículo (miniatura principal) -->
+      <img src="/assets/img/router-switch.webp" alt="Routers y Switches: ¿Qué son y para qué se usan?" class="post-full-img">
+      <!-- Contenido del artículo convertido de Markdown (incluyendo imágenes) -->
+      <h2>Introducción</h2>
+<p>En el mundo de las redes de computadoras, los términos "router" y "switch" son muy comunes. A menudo se usan juntos en el mismo contexto, pero cumplen funciones muy diferentes. Entender qué hace cada uno es crucial para comprender cómo se conectan y comunican los dispositivos en una red, ya sea en casa o en una oficina.</p>
+<h2>¿Qué es un Router?</h2>
+<p>Un <strong>router</strong> (en español, "enrutador") es un dispositivo que <strong>conecta diferentes redes entre sí</strong>. Su función principal es <strong>dirigir (enrutar) el tráfico de datos</strong> entre estas redes para que llegue a su destino correcto.</p>
+<h3>Funciones principales de un Router</h3>
+<p>* <strong>Conexión a Internet:</strong> En un hogar u oficina, el router es el dispositivo que conecta tu red local (LAN) a la red global de Internet (WAN). Recibe la conexión de Internet del proveedor (a través de un módem) y la comparte con todos los dispositivos de tu red.
+* <strong>Asignación de direcciones IP:</strong> Utiliza el protocolo DHCP para asignar automáticamente direcciones IP únicas a cada dispositivo conectado a la red local. Esto permite que cada dispositivo sea identificable.
+* <strong>NAT (Traducción de Direcciones de Red):</strong> Permite que múltiples dispositivos en tu red local compartan una sola dirección IP pública para salir a Internet.
+* <strong>Firewall básico:</strong> Muchos routers incluyen funciones de seguridad básicas para proteger la red de accesos no autorizados desde Internet.
+* <strong>Wi-Fi:</strong> La mayoría de los routers domésticos modernos también incluyen un punto de acceso Wi-Fi para permitir conexiones inalámbricas.</p>
+<h3>¿Dónde se usa un Router?</h3>
+<p>* <strong>En el hogar:</strong> El router doméstico es el dispositivo que conecta tus computadoras, teléfonos y otros dispositivos a Internet.
+* <strong>En empresas:</strong> Routers más potentes conectan las redes locales de la empresa a Internet y pueden conectar diferentes sucursales entre sí.</p>
+<h2>¿Qué es un Switch?</h2>
+<p>Un <strong>switch</strong> (en español, "conmutador") es un dispositivo que <strong>conecta múltiples dispositivos dentro de una misma red local (LAN)</strong>. Su trabajo es <strong>"conmutar" o dirigir el tráfico de datos</strong> únicamente entre los dispositivos conectados a sus puertos.</p>
+<h3>Funciones principales de un Switch</h3>
+<p>* <strong>Conexión de dispositivos:</strong> Proporciona múltiples puertos Ethernet para conectar computadoras, impresoras, servidores y otros dispositivos dentro de una misma red.
+* <strong>Creación de una Red de Área Local (LAN):</strong> Todos los dispositivos conectados a un switch forman parte de la misma red local.
+* <strong>Transmisión Inteligente:</strong> A diferencia de un "hub" antiguo que enviaba datos a todos los puertos, un switch aprende las direcciones MAC de los dispositivos conectados y envía los datos solo al puerto del dispositivo de destino. Esto mejora la eficiencia y el ancho de banda.
+* <strong>Segmentación de tráfico:</strong> Al operar en la capa de enlace de datos (Capa 2 del modelo OSI), puede manejar mejor el tráfico dentro de la red local.</p>
+<h3>¿Dónde se usa un Switch?</h3>
+<p>* <strong>En oficinas medianas y grandes:</strong> Para conectar muchas computadoras entre sí sin necesidad de un router para cada una.
+* <strong>En redes detrás de un router:</strong> Un router doméstico básico puede tener 4 puertos para conectar dispositivos por cable. Si necesitas conectar más, conectas un switch a uno de esos puertos para expandir la cantidad de conexiones disponibles.
+* <strong>En entornos donde se necesita alta velocidad por cable:</strong> Para conexiones fijas de alta velocidad entre servidores o estaciones de trabajo.</p>
+<h2>Router vs. Switch: Diferencias Clave</h2>
+<p>| Característica          | Router                                  | Switch                                              |
+|:----------------------- |:--------------------------------------- |:--------------------------------------------------- |
+| <strong>Función Principal</strong>   | Conectar diferentes redes (LAN <-> WAN) | Conectar dispositivos dentro de una misma red (LAN) |
+| <strong>Capa OSI</strong>            | Opera principalmente en la Capa 3 (Red) | Opera en la Capa 2 (Enlace de datos)                |
+| <strong>Direccionamiento</strong>    | Usa direcciones IP                      | Usa direcciones MAC                                 |
+| <strong>Conexión a Internet</strong> | Sí, es el punto de entrada/salida       | No, necesita un router para salir a Internet        |
+| <strong>Segmentación</strong>        | Segmenta redes diferentes               | Segmenta el tráfico dentro de una red               |
+| <strong>Uso Típico</strong>          | Hogares, conexión a Internet            | Oficinas, expansión de puertos LAN                  |</p>
+<h2>¿Pueden trabajar juntos?</h2>
+<p>¡Sí! De hecho, es lo más común. En una red doméstica típica:</p>
+<p>1. El <strong>router</strong> se conecta al módem y a Internet.
+2. El router tiene puertos Ethernet integrados (funcionando como un switch básico).
+3. Si necesitas más puertos, conectas un <strong>switch</strong> adicional a uno de los puertos del router.
+4. Los dispositivos conectados al router o al switch pueden comunicarse entre sí y también acceder a Internet a través del router.</p>
+<h2>Conclusión</h2>
+<p>En resumen, el <strong>router</strong> es el "director de orquesta" que conecta tu red local con el mundo exterior (Internet) y gestiona cómo los datos entran y salen. El <strong>switch</strong> es el "coordinador interno" que permite que múltiples dispositivos dentro de tu red local se comuniquen entre sí de manera eficiente. Ambos son esenciales, pero cumplen roles distintos y complementarios en cualquier red moderna.</p>
+    </div>
+  </section>
+
+  <!-- 📞 Botón de WhatsApp -->
+  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
+    <img src="/assets/img/whatsapp-icon.webp" alt="WhatsApp">
+  </a>
+
+  <!-- 📌 Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <p>Soluciones IT profesionales, rápidas y confiables.</p>
+        </div>
+        <div class="footer-contact">
+          <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
+          <p><strong>Teléfono:</strong> +58 414 582 8186</p>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 🧠 Menú móvil -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
