@@ -1,32 +1,42 @@
 [
   {
-    "title": "Todo lo que Necesitas Saber sobre Hardware",
-    "author": "Equipo Coreltech",
-    "readingTime": "4 min",
-    "date": "23 de julio de 2025",
-    "thumbnail": "assets/img/hero-hardware.webp",
-    "summary": "Descubre cómo mantener, reparar y optimizar tus dispositivos físicos. Aquí encontrarás guías prácticas, consejos de mantenimiento y trucos que solo los expertos conocen.",
-    "url": "articulos/articulo-todo-lo-que-necesitas-saber-sobre-hardware.html",
-    "category": "hardware"
+    "title": "La Revolución de la Inteligencia Artificial",
+    "category": "hardware",
+    "author": "Juan Pérez",
+    "date": "15 Mar 2024",
+    "readingTime": "8 min",
+    "thumbnail": "https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=ARTICULO+1",
+    "summary": "Descubre cómo la inteligencia artificial está transformando nuestra vida diaria y qué podemos esperar en el futuro.",
+    "url": "articulo1.html"
   },
   {
-    "title": "El Mundo del Software, Explicado para Todos",
-    "author": "Equipo Coreltech",
-    "readingTime": "4 min",
-    "date": "23 de julio de 2025",
-    "thumbnail": "assets/img/hero-software.webp",
-    "summary": "Desde errores comunes hasta optimización avanzada, aquí aprenderás a sacarle el máximo provecho a tus programas y sistemas operativos.",
-    "url": "articulos/articulo-el-mundo-del-software-explicado-para-todos.html",
-    "category": "software"
+    "title": "Mejores prácticas en desarrollo web",
+    "category": "Software",
+    "author": "María García",
+    "date": "12 Mar 2024",
+    "readingTime": "6 min",
+    "thumbnail": "https://via.placeholder.com/400x250/50C878/FFFFFF?text=ARTICULO+2",
+    "summary": "Técnicas modernas para crear aplicaciones web eficientes y escalables.",
+    "url": "articulo2.html"
   },
   {
-    "title": "Conectado al Mundo: Todo sobre Redes",
-    "author": "Equipo Coreltech",
-    "readingTime": "4 min",
-    "date": "23 de julio de 2025",
-    "thumbnail": "assets/img/hero-redes.webp",
-    "summary": "Desde tu Wi-Fi en casa hasta redes empresariales, aquí encontrarás guías claras para entender, mejorar y proteger tu conexión.",
-    "url": "articulos/articulo-conectado-al-mundo-todo-sobre-redes.html",
-    "category": "redes"
+    "title": "Optimización de redes empresariales",
+    "category": "Redes",
+    "author": "Carlos López",
+    "date": "10 Mar 2024",
+    "readingTime": "7 min",
+    "thumbnail": "https://via.placeholder.com/400x250/FF6B6B/FFFFFF?text=ARTICULO+3",
+    "summary": "Estrategias para mejorar el rendimiento y seguridad de tus redes corporativas.",
+    "url": "articulo3.html"
+  },
+  {
+    "title": "Ciberseguridad en 2024",
+    "category": "software",
+    "author": "Ana Martínez",
+    "date": "8 Mar 2024",
+    "readingTime": "5 min",
+    "thumbnail": "https://via.placeholder.com/400x250/9370DB/FFFFFF?text=ARTICULO+4",
+    "summary": "Las principales amenazas cibernéticas que debes conocer este año.",
+    "url": "articulo4.html"
   }
 ]
