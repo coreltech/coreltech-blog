@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Guías sobre software - Coreltech Blog">
+  <!-- Metadatos personalizados -->
+  <meta name="description" content="Artículos sobre software en Coreltech Blog - Desarrollo, aplicaciones y tendencias.">
   <title>Software - Coreltech Blog</title>
-  <!-- Google Fonts: Estilo revista -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Estilo principal -->
   <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="icon" href="assets/img/favicon.webp" type="image/webp">
+  <link rel="preload" href="assets/img/hero-software.webp" as="image">
 </head>
+<!-- Clase del body más específica para categoría -->
 <body class="category-page software">
-  <!-- 🧭 Menú -->
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+        <img src="assets/img/logo.webp" alt="Coreltech IT Solutions" width="150">
       </a>
       <button class="menu-toggle" aria-label="Abrir menú">☰</button>
       <nav>
@@ -28,34 +30,30 @@
       </nav>
     </div>
   </header>
-
-  <!-- 🎯 Hero -->
+  <!-- Hero Section con categoría y contenido específico -->
   <section class="hero" data-category="software">
     <div class="container">
       <h1>Software</h1>
-      <p>Errores, actualizaciones, herramientas y optimización de software</p>
+      <p>Artículos sobre desarrollo, aplicaciones, sistemas operativos y las últimas tendencias en software.</p>
     </div>
   </section>
-
-  <!-- 📰 Artículos de Software -->
   <section class="posts">
     <div class="container">
+      <!-- Título específico para la categoría -->
       <h2>Últimos artículos de Software</h2>
+      <!-- Contenedor consistente con hardware.html -->
       <div id="category-posts" class="magazine-grid-small"></div>
     </div>
   </section>
-
-  <!-- 📞 Botón de WhatsApp -->
+  <!-- Enlaces corregidos sin espacios -->
   <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
     <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
-
-  <!-- 📌 Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="150">
           <p>Revista digital sobre tecnología, desarrollo y soluciones IT.</p>
         </div>
         <div class="footer-contact">
@@ -65,6 +63,7 @@
         <div class="footer-social">
           <h4>Síguenos</h4>
           <ul>
+            <!-- Corregidos los espacios en los href -->
             <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
             <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
           </ul>
@@ -75,39 +74,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- 🧠 Cargar artículos de software -->
-  <script>
-    fetch("feed/posts.json")
-      .then(res => res.json())
-      .then(posts => {
-        const container = document.getElementById("category-posts");
-        const softwarePosts = posts.filter(post => post.category === "software");
-        softwarePosts.forEach(post => {
-          const article = document.createElement("article");
-          article.classList.add("magazine-card");
-          article.innerHTML = `
-            <img src="${post.thumbnail || 'assets/img/blog-article-default.webp'}" alt="${post.title}" class="card-img">
-            <div class="card-body">
-              <span class="tag">${post.category}</span>
-              <h3>${post.title}</h3>
-              <div class="post-meta small">
-                <span>Por <strong>${post.author || 'Redacción'}</strong></span>
-                <span>•</span>
-                <span>${post.date}</span>
-                <span>•</span>
-                <span>${post.readingTime || '3 min'}</span>
-              </div>
-              <a href="${post.url}" class="read-more">Leer más →</a>
-            </div>
-          `;
-          container.appendChild(article);
-        });
-      })
-      .catch(err => console.error("❌ Error al cargar artículos de software:", err));
-  </script>
-
-  <!-- 🧠 Cargar fondo del Hero -->
   <script>
     const hero = document.querySelector(".hero");
     if (hero) {
@@ -123,17 +89,14 @@
         img.src = heroImages[category];
         img.onload = () => {
           hero.style.backgroundImage = `url('${heroImages[category]}')`;
-          hero.style.backgroundColor = "transparent";
         };
         img.onerror = () => {
-          hero.style.backgroundImage = "none";
+          console.warn(`No se pudo cargar la imagen del hero: ${heroImages[category]}`);
           hero.style.backgroundColor = "#0070f3";
         };
       }
     }
   </script>
-
-  <!-- 🧠 Menú móvil -->
   <script>
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
@@ -148,7 +111,6 @@
       });
     }
   </script>
-
-  <script src="assets/js/load-posts.js"></script>
+  <script src="assets/js/load-posts.js" defer></script>
 </body>
 </html>
