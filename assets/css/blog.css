@@ -569,3 +569,12 @@ p {
   margin-bottom: 2rem; /* Espacio debajo de la imagen */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: sombra sutil */
 }
+
+/* Red de seguridad para imágenes dentro del contenido principal */
+.posts img,
+.post-full img { /* Ajusta los selectores según las clases reales de tus contenedores */
+  max-width: 100%;
+  height: auto;
+  /* Opcionalmente, puedes añadir un límite máximo de ancho si es necesario */
+  /* max-width: 1200px; */
+}
