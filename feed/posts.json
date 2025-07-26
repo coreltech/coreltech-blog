@@ -1,46 +1,62 @@
 [
   {
-    "id": 1,
-    "title": "Cómo optimizar tu PC para gaming",
-    "summary": "Consejos prácticos para mejorar el rendimiento de tu computadora.",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "category": "hardware",
-    "author": "Juan Pérez",
-    "date": "15 de noviembre, 2024",
+    "title": "Señales de que tu PC necesita mantenimiento",
+    "author": "Equipo Coreltech",
     "readingTime": "5 min",
-    "url": "articulos/optimizar-pc-gaming.html"
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/senal-mantenimiento.webp",
+    "summary": "¿Tu computadora anda lenta o hace ruidos extraños? Estas señales indican que es hora de un mantenimiento.",
+    "url": "articulos/articulo-senales-de-que-tu-pc-necesita-mantenimiento.html",
+    "category": "hardware"
   },
   {
-    "id": 2,
-    "title": "Guía de Linux para principiantes",
-    "summary": "Todo lo que necesitas saber para empezar con Linux.",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "category": "software",
-    "author": "María García",
-    "date": "10 de noviembre, 2024",
-    "readingTime": "8 min",
-    "url": "articulos/guia-linux-principiantes.html"
-  },
-  {
-    "id": 3,
-    "title": "Redes Wi-Fi 6: ¿Vale la pena actualizar?",
-    "summary": "Análisis detallado de la nueva tecnología de redes inalámbricas.",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "category": "redes",
-    "author": "Carlos López",
-    "date": "5 de noviembre, 2024",
+    "title": "¿Qué es una red Wi-Fi? Principios básicos",
+    "author": "Equipo Coreltech",
     "readingTime": "6 min",
-    "url": "articulos/redes-wifi-6.html"
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/articulo-wifi.webp",
+    "summary": "Descubre qué es una red Wi-Fi, cómo funciona y cuáles son sus componentes básicos.",
+    "url": "articulos/articulo-que-es-una-red-wi-fi-principios-basicos.html",
+    "category": "redes"
   },
   {
-    "id": 4,
-    "title": "Introducción a la ciberseguridad",
-    "summary": "Conceptos básicos para proteger tus dispositivos y datos.",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "category": "seguridad",
-    "author": "Ana Martínez",
-    "date": "1 de noviembre, 2024",
+    "title": "Tipos de archivos en una PC: Nociones básicas",
+    "author": "Equipo Coreltech",
+    "readingTime": "5 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/tipos-archivos.webp",
+    "summary": "Aprende los tipos de archivos más comunes en una computadora, sus extensiones y para qué se usan.",
+    "url": "articulos/articulo-tipos-de-archivos-en-una-pc-nociones-basicas.html",
+    "category": "software"
+  },
+  {
+    "title": "Routers y Switches: ¿Qué son y para qué se usan?",
+    "author": "Equipo Coreltech",
     "readingTime": "7 min",
-    "url": "articulos/introduccion-ciberseguridad.html"
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/router-switch.webp",
+    "summary": "Conoce las diferencias entre routers y switches, dos componentes esenciales en redes de computadoras.",
+    "url": "articulos/articulo-routers-y-switches-que-son-y-para-que-se-usan.html",
+    "category": "redes"
+  },
+  {
+    "title": "Diferencias entre FAT32 y NTFS: ¿Cuál sistema de archivos elegir?",
+    "author": "Equipo Coreltech",
+    "readingTime": "7 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/fat32-vs-ntfs.webp",
+    "summary": "Comprende las principales diferencias entre los sistemas de archivos FAT32 y NTFS en Windows para tomar decisiones informadas sobre tu almacenamiento.",
+    "url": "articulos/articulo-diferencias-entre-fat32-y-ntfs-cual-sistema-de-archivos-elegir.html",
+    "category": "software"
+  },
+  {
+    "title": "¿Qué es el mantenimiento de una PC?",
+    "author": "Equipo Coreltech",
+    "readingTime": "6 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/pc-mantenimiento.webp",
+    "summary": "Conoce qué implica el mantenimiento preventivo y correctivo de una computadora para mantenerla en óptimas condiciones.",
+    "url": "articulos/articulo-que-es-el-mantenimiento-de-una-pc.html",
+    "category": "hardware"
   }
 ]
