@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Cómo optimizar tu PC para gaming",
+    "summary": "Consejos prácticos para mejorar el rendimiento de tu computadora.",
+    "thumbnail": "assets/img/blog-article-default.webp",
+    "category": "hardware",
+    "author": "Juan Pérez",
+    "date": "15 de noviembre, 2024",
+    "readingTime": "5 min",
+    "url": "articulos/optimizar-pc-gaming.html"
+  },
+  {
+    "id": 2,
+    "title": "Guía de Linux para principiantes",
+    "summary": "Todo lo que necesitas saber para empezar con Linux.",
+    "thumbnail": "assets/img/blog-article-default.webp",
+    "category": "software",
+    "author": "María García",
+    "date": "10 de noviembre, 2024",
+    "readingTime": "8 min",
+    "url": "articulos/guia-linux-principiantes.html"
+  },
+  {
+    "id": 3,
+    "title": "Redes Wi-Fi 6: ¿Vale la pena actualizar?",
+    "summary": "Análisis detallado de la nueva tecnología de redes inalámbricas.",
+    "thumbnail": "assets/img/blog-article-default.webp",
+    "category": "redes",
+    "author": "Carlos López",
+    "date": "5 de noviembre, 2024",
+    "readingTime": "6 min",
+    "url": "articulos/redes-wifi-6.html"
+  },
+  {
+    "id": 4,
+    "title": "Introducción a la ciberseguridad",
+    "summary": "Conceptos básicos para proteger tus dispositivos y datos.",
+    "thumbnail": "assets/img/blog-article-default.webp",
+    "category": "seguridad",
+    "author": "Ana Martínez",
+    "date": "1 de noviembre, 2024",
+    "readingTime": "7 min",
+    "url": "articulos/introduccion-ciberseguridad.html"
+  }
+]
