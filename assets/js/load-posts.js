@@ -107,6 +107,19 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `;
 
+        // 🔥 INSERTAR LA SECCIÓN DE ENCUESTA AQUÍ 🔥
+        html += `
+          <section class="poll-promo-pyramid">
+            <div class="container">
+              <div class="poll-promo-card">
+                <h3>📊 ¡Ayúdanos a mejorar!</h3>
+                <p>¿Qué temas te gustaría que cubriéramos próximamente? Tu opinión nos ayuda a crear contenido que realmente te interese.</p>
+                <a href="encuesta.html" class="poll-button">Participar en la Encuesta</a>
+              </div>
+            </div>
+          </section>
+        `;
+
         // Fila de artículos regulares (3 artículos)
         html += '<div class="bottom-articles-row">';
         regularPosts.forEach(post => {

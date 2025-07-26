@@ -578,3 +578,386 @@ p {
   /* Opcionalmente, puedes añadir un límite máximo de ancho si es necesario */
   /* max-width: 1200px; */
 }
+
+/* Ajuste para mejor aprovechamiento del espacio en pantallas grandes */
+@media (min-width: 1200px) {
+  .bottom-articles-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Para pantallas medianas */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .bottom-articles-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Fila de artículos inferiores */
+.bottom-articles-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+/* ==================== */
+/*   ENCUESTA PROMO     */
+/* ==================== */
+.poll-promo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 4rem 0;
+  color: white;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.poll-promo-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.poll-promo-card h3 {
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.poll-promo-card p {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.poll-button {
+  background: white;
+  color: #667eea;
+  padding: 1.2rem 2.5rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.poll-button:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive para promoción */
+@media (max-width: 768px) {
+  .poll-promo {
+    padding: 2.5rem 0;
+  }
+  
+  .poll-promo-card {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 16px;
+  }
+  
+  .poll-promo-card h3 {
+    font-size: 1.8rem;
+  }
+  
+  .poll-promo-card p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .poll-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ==================== */
+/* ENCUESTA EN PIRÁMIDE */
+/* ==================== */
+.poll-promo-pyramid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.poll-promo-pyramid .container {
+  width: 100%;
+  max-width: 800px;
+}
+
+.poll-promo-pyramid .poll-promo-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+}
+
+.poll-promo-pyramid .poll-promo-card h3 {
+  color: white;
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.poll-promo-pyramid .poll-promo-card p {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.poll-promo-pyramid .poll-button {
+  background: white;
+  color: #667eea;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.poll-promo-pyramid .poll-button:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive para encuesta en pirámide */
+@media (max-width: 768px) {
+  .poll-promo-pyramid {
+    padding: 1.5rem 0;
+  }
+  
+  .poll-promo-pyramid .poll-promo-card {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .poll-promo-pyramid .poll-promo-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .poll-promo-pyramid .poll-promo-card p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .poll-promo-pyramid .poll-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+/* ==================== */
+/*    ENCUESTA REALTIME */
+/* ==================== */
+.poll-section {
+  flex: 1;
+  padding: 3rem 0;
+  background: #f8f9fa;
+}
+
+.poll-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.poll-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-size: 1.8rem;
+}
+
+.poll-question {
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.poll-options {
+  margin-bottom: 2rem;
+}
+
+.poll-option {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.poll-option:hover {
+  border-color: #0070f3;
+  background: rgba(0, 112, 243, 0.05);
+}
+
+.poll-option input {
+  margin-right: 1rem;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.poll-option label {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.poll-submit {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.poll-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.poll-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.poll-results {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #eee;
+}
+
+.result-bar {
+  background: #e9ecef;
+  height: 25px;
+  border-radius: 12px;
+  margin: 0.8rem 0 1.5rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.result-fill {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  height: 100%;
+  border-radius: 12px;
+  transition: width 1s ease;
+  position: relative;
+}
+
+.result-item {
+  margin-bottom: 1.5rem;
+}
+
+.result-item p {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.poll-thanks {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(39, 174, 96, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+.poll-thanks p {
+  color: #27ae60;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.total-votes {
+  text-align: center;
+  font-weight: 600;
+  color: #667eea;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #e74c3c;
+  background: #fdecea;
+  border-radius: 8px;
+}
+
+/* Responsive para encuesta */
+@media (max-width: 768px) {
+  .poll-card {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .poll-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .poll-question {
+    font-size: 1.1rem;
+  }
+  
+  .poll-option label {
+    font-size: 1rem;
+  }
+  
+  .poll-submit {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
