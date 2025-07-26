@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrar Encuestas - Coreltech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <style>
+    .admin-section {
+      padding: 2rem 0;
+      background: #f8f9fa;
+    }
+    
+    .admin-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eee;
+      margin-bottom: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-primary {
+      background: #0070f3;
+      color: white;
+    }
+    
+    .btn-success {
+      background: #28a745;
+      color: white;
+    }
+    
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .btn-warning {
+      background: #ffc107;
+      color: #212529;
+    }
+    
+    .btn-info {
+      background: #17a2b8;
+      color: white;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .opcion-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      align-items: center;
+    }
+    
+    .opcion-input {
+      flex: 1;
+    }
+    
+    .opcion-remove {
+      background: #dc3545;
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .encuesta-lista {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .encuesta-lista:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .encuesta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .encuesta-titulo {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 1.2rem;
+    }
+    
+    .encuesta-meta {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .encuesta-status {
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .status-activa {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-inactiva {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    
+    .status-programada {
+      background: #cce7ff;
+      color: #004085;
+    }
+    
+    .status-finalizada {
+      background: #e2e3e5;
+      color: #383d41;
+    }
+    
+    .acciones {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+    }
+    
+    .date-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .tab {
+      padding: 1rem 2rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      font-weight: 600;
+      color: #666;
+    }
+    
+    .tab.active {
+      color: #0070f3;
+      border-bottom-color: #0070f3;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .notification {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    
+    .notification.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .notification.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    @media (max-width: 768px) {
+      .date-inputs {
+        grid-template-columns: 1fr;
+      }
+      
+      .encuesta-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .tab {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body class="category-page admin">
+  <!-- Header y navegación -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="redes.html">Redes</a></li>
+          <li><a href="encuesta.html">Encuesta</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="background-color: #2c3e50;">
+    <div class="container">
+      <h1>⚙️ Administrar Encuestas</h1>
+      <p>Gestiona tus encuestas de manera sencilla</p>
+    </div>
+  </section>
+
+  <section class="admin-section">
+    <div class="container">
+      <!-- Notificaciones -->
+      <div id="notification" class="notification"></div>
+      
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab active" data-tab="crear">Crear Encuesta</div>
+        <div class="tab" data-tab="listar">Encuestas Existentes</div>
+        <div class="tab" data-tab="resultados">Ver Resultados</div>
+      </div>
+      
+      <!-- Tab Crear Encuesta -->
+      <div class="tab-content active" id="tab-crear">
+        <div class="admin-card">
+          <h2>➕ Crear Nueva Encuesta</h2>
+          <form id="form-nueva-encuesta">
+            <div class="form-group">
+              <label for="encuesta-id">ID de la Encuesta *:</label>
+              <input type="text" id="encuesta-id" class="form-control" placeholder="ej: encuesta_2024_01" required>
+              <small>Identificador único para la encuesta (sin espacios)</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="encuesta-titulo">Título:</label>
+              <input type="text" id="encuesta-titulo" class="form-control" placeholder="Nombre descriptivo">
+            </div>
+            
+            <div class="form-group">
+              <label for="encuesta-pregunta">Pregunta *:</label>
+              <input type="text" id="encuesta-pregunta" class="form-control" placeholder="¿Cuál es tu pregunta?" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Opciones *:</label>
+              <div id="opciones-container">
+                <div class="opcion-item">
+                  <input type="text" class="form-control opcion-input" placeholder="Opción 1" required>
+                  <button type="button" class="opcion-remove" onclick="this.parentElement.remove()">×</button>
+                </div>
+                <div class="opcion-item">
+                  <input type="text" class="form-control opcion-input" placeholder="Opción 2" required>
+                  <button type="button" class="opcion-remove" onclick="this.parentElement.remove()">×</button>
+                </div>
+              </div>
+              <button type="button" id="agregar-opcion" class="btn btn-info" style="margin-top: 0.5rem;">
+                + Agregar Opción
+              </button>
+            </div>
+            
+            <div class="form-group">
+              <label for="encuesta-categoria">Categoría:</label>
+              <select id="encuesta-categoria" class="form-control">
+                <option value="principal">Principal</option>
+                <option value="especial">Especial</option>
+                <option value="feedback">Feedback</option>
+                <option value="general">General</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Programar Encuesta:</label>
+              <div class="date-inputs">
+                <div>
+                  <label for="fecha-inicio">Fecha de Inicio:</label>
+                  <input type="datetime-local" id="fecha-inicio" class="form-control">
+                </div>
+                <div>
+                  <label for="fecha-fin">Fecha de Fin:</label>
+                  <input type="datetime-local" id="fecha-fin" class="form-control">
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="encuesta-activa" checked> Activar inmediatamente
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-success">💾 Guardar Encuesta</button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Tab Listar Encuestas -->
+      <div class="tab-content" id="tab-listar">
+        <div class="admin-card">
+          <h2>📋 Encuestas Existentes</h2>
+          <div id="lista-encuestas">
+            <!-- Las encuestas se cargarán aquí dinámicamente -->
+            <p>Cargando encuestas...</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tab Ver Resultados -->
+      <div class="tab-content" id="tab-resultados">
+        <div class="admin-card">
+          <h2>📊 Resultados de Encuestas</h2>
+          <div class="form-group">
+            <label for="selector-encuesta-resultados">Seleccionar Encuesta:</label>
+            <select id="selector-encuesta-resultados" class="form-control">
+              <option value="">Cargando encuestas...</option>
+            </select>
+          </div>
+          
+          <div id="resultados-container">
+            <p>Selecciona una encuesta para ver sus resultados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <p>Revista digital sobre tecnología, desarrollo y soluciones IT.</p>
+        </div>
+        <div class="footer-contact">
+          <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
+          <p><strong>Teléfono:</strong> +58 414 582 8186</p>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+
+    // Tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        const tabName = tab.getAttribute('data-tab');
+        document.getElementById(`tab-${tabName}`).classList.add('active');
+        if (tabName === 'listar') {
+          cargarListaEncuestas();
+        } else if (tabName === 'resultados') {
+          cargarSelectorEncuestas();
+        }
+      });
+    });
+
+    // Mostrar notificaciones
+    function mostrarNotificacion(mensaje, tipo = 'success') {
+      const notification = document.getElementById('notification');
+      notification.textContent = mensaje;
+      notification.className = `notification ${tipo}`;
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 5000);
+    }
+
+    // Cargar Firebase
+    document.addEventListener('DOMContentLoaded', async function() {
+      // Importar Firebase
+      const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js');
+      const { getDatabase, ref, push, onValue, set, get, update, remove } = await import('https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js');
+
+      // Configuración de Firebase (REEMPLAZA CON TUS DATOS)
+      const firebaseConfig = {
+        apiKey: "AIzaSyBv6jzmL0w0H0_bE40sUJ1e3aBpl8qPqu4",
+        authDomain: "coreltech-blog.firebaseapp.com",
+        databaseURL: "https://coreltech-blog-default-rtdb.firebaseio.com/",
+        projectId: "coreltech-blog",
+        storageBucket: "coreltech-blog.firebasestorage.app",
+        messagingSenderId: "306729501990",
+        appId: "1:306729501990:web:23967c40fbeddf3ffbede7"
+      };
+
+      // Inicializar Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+
+      // Funcionalidad del formulario
+      document.getElementById('agregar-opcion').addEventListener('click', function() {
+        const container = document.getElementById('opciones-container');
+        const opcionCount = container.querySelectorAll('.opcion-item').length + 1;
+        const opcionHTML = `
+          <div class="opcion-item">
+            <input type="text" class="form-control opcion-input" placeholder="Opción ${opcionCount}" required>
+            <button type="button" class="opcion-remove" onclick="this.parentElement.remove()">×</button>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', opcionHTML);
+      });
+
+      // Manejar envío del formulario
+      document.getElementById('form-nueva-encuesta').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const id = document.getElementById('encuesta-id').value.trim();
+        const titulo = document.getElementById('encuesta-titulo').value.trim();
+        const pregunta = document.getElementById('encuesta-pregunta').value.trim();
+        const categoria = document.getElementById('encuesta-categoria').value;
+        const activa = document.getElementById('encuesta-activa').checked;
+        const fechaInicio = document.getElementById('fecha-inicio').value;
+        const fechaFin = document.getElementById('fecha-fin').value;
+        
+        const opcionesInputs = document.querySelectorAll('.opcion-input');
+        const opciones = Array.from(opcionesInputs)
+          .map(input => input.value.trim())
+          .filter(value => value !== '');
+        
+        if (opciones.length < 2) {
+          mostrarNotificacion('Debes ingresar al menos 2 opciones', 'error');
+          return;
+        }
+        
+        if (!id) {
+          mostrarNotificacion('El ID de la encuesta es obligatorio', 'error');
+          return;
+        }
+        
+        if (!pregunta) {
+          mostrarNotificacion('La pregunta es obligatoria', 'error');
+          return;
+        }
+        
+        try {
+          // Crear encuesta en Firebase
+          const encuestaRef = ref(database, `encuestas_config/${id}`);
+          await set(encuestaRef, {
+            titulo: titulo || `Encuesta ${id}`,
+            pregunta: pregunta,
+            opciones: opciones,
+            categoria: categoria,
+            activa: activa,
+            fechaInicio: fechaInicio || null,
+            fechaFin: fechaFin || null,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          });
+          
+          mostrarNotificacion('✅ Encuesta creada exitosamente');
+          this.reset();
+          const opcionesContainer = document.getElementById('opciones-container');
+          opcionesContainer.innerHTML = `
+            <div class="opcion-item">
+              <input type="text" class="form-control opcion-input" placeholder="Opción 1" required>
+              <button type="button" class="opcion-remove" onclick="this.parentElement.remove()">×</button>
+            </div>
+            <div class="opcion-item">
+              <input type="text" class="form-control opcion-input" placeholder="Opción 2" required>
+              <button type="button" class="opcion-remove" onclick="this.parentElement.remove()">×</button>
+            </div>
+          `;
+        } catch (error) {
+          console.error('Error al crear encuesta:', error);
+          mostrarNotificacion('❌ Error al crear la encuesta: ' + error.message, 'error');
+        }
+      });
+
+      // Cargar lista de encuestas
+      async function cargarListaEncuestas() {
+        const container = document.getElementById('lista-encuestas');
+        try {
+          const encuestasRef = ref(database, 'encuestas_config');
+          const snapshot = await get(encuestasRef);
+          const encuestas = snapshot.val();
+          
+          if (!encuestas || Object.keys(encuestas).length === 0) {
+            container.innerHTML = '<p>No hay encuestas creadas aún.</p>';
+            return;
+          }
+          
+          let html = '';
+          const ahora = new Date().getTime();
+          
+          Object.entries(encuestas).forEach(([id, encuesta]) => {
+            const inicio = encuesta.fechaInicio ? new Date(encuesta.fechaInicio).getTime() : 0;
+            const fin = encuesta.fechaFin ? new Date(encuesta.fechaFin).getTime() : Infinity;
+            
+            let statusClass = 'status-inactiva';
+            let statusText = 'Inactiva';
+            
+            if (encuesta.activa) {
+              if (ahora < inicio) {
+                statusClass = 'status-programada';
+                statusText = 'Programada';
+              } else if (ahora > fin) {
+                statusClass = 'status-finalizada';
+                statusText = 'Finalizada';
+              } else {
+                statusClass = 'status-activa';
+                statusText = 'Activa';
+              }
+            }
+            
+            html += `
+              <div class="encuesta-lista">
+                <div class="encuesta-header">
+                  <div>
+                    <div class="encuesta-titulo">${encuesta.titulo || id}</div>
+                    <div class="encuesta-meta">
+                      <small>ID: ${id} | Categoría: ${encuesta.categoria || 'general'}</small>
+                    </div>
+                    ${encuesta.fechaInicio || encuesta.fechaFin ? `
+                      <div class="encuesta-meta">
+                        <small>
+                          ${encuesta.fechaInicio ? `Inicio: ${new Date(encuesta.fechaInicio).toLocaleString()}` : ''}
+                          ${encuesta.fechaFin ? ` | Fin: ${new Date(encuesta.fechaFin).toLocaleString()}` : ''}
+                        </small>
+                      </div>
+                    ` : ''}
+                  </div>
+                  <div>
+                    <span class="encuesta-status ${statusClass}">${statusText}</span>
+                  </div>
+                </div>
+                <p><strong>Pregunta:</strong> ${encuesta.pregunta}</p>
+                <p><strong>Opciones:</strong> ${encuesta.opciones.join(', ')}</p>
+                <div class="acciones">
+                  <button onclick="toggleEncuesta('${id}', ${encuesta.activa})" class="btn ${encuesta.activa ? 'btn-warning' : 'btn-success'}">
+                    ${encuesta.activa ? '⏸ Desactivar' : '▶ Activar'}
+                  </button>
+                  <button onclick="eliminarEncuesta('${id}')" class="btn btn-danger">
+                    🗑 Eliminar
+                  </button>
+                </div>
+              </div>
+            `;
+          });
+          
+          container.innerHTML = html;
+        } catch (error) {
+          console.error('Error al cargar encuestas:', error);
+          container.innerHTML = '<p>Error al cargar las encuestas.</p>';
+        }
+      }
+
+      // Cargar selector de encuestas para resultados
+      async function cargarSelectorEncuestas() {
+        const selector = document.getElementById('selector-encuesta-resultados');
+        try {
+          const encuestasRef = ref(database, 'encuestas_config');
+          const snapshot = await get(encuestasRef);
+          const encuestas = snapshot.val();
+          
+          if (!encuestas || Object.keys(encuestas).length === 0) {
+            selector.innerHTML = '<option value="">No hay encuestas disponibles</option>';
+            return;
+          }
+          
+          let options = '<option value="">Seleccionar una encuesta...</option>';
+          Object.entries(encuestas).forEach(([id, encuesta]) => {
+            options += `<option value="${id}">${encuesta.titulo || id}</option>`;
+          });
+          
+          selector.innerHTML = options;
+        } catch (error) {
+          console.error('Error al cargar selector de encuestas:', error);
+          selector.innerHTML = '<option value="">Error al cargar encuestas</option>';
+        }
+      }
+
+      // Mostrar resultados de una encuesta
+      document.getElementById('selector-encuesta-resultados').addEventListener('change', async function() {
+        const encuestaId = this.value;
+        const container = document.getElementById('resultados-container');
+        
+        if (!encuestaId) {
+          container.innerHTML = '<p>Selecciona una encuesta para ver sus resultados.</p>';
+          return;
+        }
+        
+        try {
+          container.innerHTML = '<p>Cargando resultados...</p>';
+          
+          const encuestaRef = ref(database, `encuestas_config/${encuestaId}`);
+          const encuestaSnapshot = await get(encuestaRef);
+          const encuesta = encuestaSnapshot.val();
+          
+          if (!encuesta) {
+            container.innerHTML = '<p>Encuesta no encontrada.</p>';
+            return;
+          }
+        // Obtener votos (CORRECTA)
+          const votosRef = ref(database, `polls/${encuestaId}/votes`);
+          const votosSnapshot = await get(votosRef);
+          const votos = votosSnapshot.val();
+          
+          if (!votos) {
+            container.innerHTML = `
+              <h3>${encuesta.titulo || encuestaId}</h3>
+              <p><strong>Pregunta:</strong> ${encuesta.pregunta}</p>
+              <p>No hay votos registrados para esta encuesta.</p>
+            `;
+            return;
+          }
+          
+          const voteCounts = {};
+          encuesta.opciones.forEach((_, index) => {
+            voteCounts[index] = 0;
+          });
+          
+          Object.values(votos).forEach(vote => {
+            if (vote.option !== undefined && voteCounts[vote.option] !== undefined) {
+              voteCounts[vote.option]++;
+            }
+          });
+          
+          const totalVotes = Object.values(voteCounts).reduce((sum, count) => sum + count, 0);
+          
+          let resultsHTML = `
+            <h3>${encuesta.titulo || encuestaId}</h3>
+            <p><strong>Pregunta:</strong> ${encuesta.pregunta}</p>
+            <p><strong>Total de votos:</strong> ${totalVotes}</p>
+            <div style="margin-top: 1rem;">
+          `;
+          
+          encuesta.opciones.forEach((option, index) => {
+            const count = voteCounts[index] || 0;
+            const percentage = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
+            
+            resultsHTML += `
+              <div style="margin-bottom: 1rem;">
+                <p><strong>${option}:</strong> ${count} votos (${percentage}%)</p>
+                <div style="background: #e9ecef; height: 20px; border-radius: 10px; overflow: hidden;">
+                  <div style="background: #0070f3; height: 100%; width: ${percentage}%; border-radius: 10px;"></div>
+                </div>
+              </div>
+            `;
+          });
+          
+          resultsHTML += '</div>';
+          container.innerHTML = resultsHTML;
+        } catch (error) {
+          console.error('Error al cargar resultados:', error);
+          container.innerHTML = '<p>Error al cargar los resultados.</p>';
+        }
+      });
+
+      // Funciones globales para las acciones
+      window.toggleEncuesta = async function(id, actualEstado) {
+        try {
+          const encuestaRef = ref(database, `encuestas_config/${id}`);
+          await update(encuestaRef, {
+            activa: !actualEstado,
+            updatedAt: new Date().toISOString()
+          });
+          
+          mostrarNotificacion(`✅ Encuesta ${!actualEstado ? 'activada' : 'desactivada'} exitosamente`);
+          cargarListaEncuestas();
+        } catch (error) {
+          console.error('Error al cambiar estado de encuesta:', error);
+          mostrarNotificacion('❌ Error al cambiar el estado de la encuesta', 'error');
+        }
+      };
+      
+      window.eliminarEncuesta = async function(id) {
+        if (confirm('¿Estás seguro de eliminar esta encuesta? Esta acción no se puede deshacer.')) {
+          try {
+            const encuestaRef = ref(database, `encuestas_config/${id}`);
+            await remove(encuestaRef);
+            const votosRef = ref(database, `polls/${id}`);
+            await remove(votosRef);
+            mostrarNotificacion('✅ Encuesta eliminada exitosamente');
+            cargarListaEncuestas();
+          } catch (error) {
+            console.error('Error al eliminar encuesta:', error);
+            mostrarNotificacion('❌ Error al eliminar la encuesta', 'error');
+          }
+        }
+      };
+
+        // Cargar lista inicial
+  cargarListaEncuestas();
+  
+  // --- CAMBIO AQUÍ ---
+  // Forzar la carga del selector de encuestas siempre al cargar
+  // para asegurarnos de que se ejecute.
+  console.log("Forzando carga inicial del selector de encuestas...");
+  cargarSelectorEncuestas().catch(err => {
+      console.error("Error al forzar cargarSelectorEncuestas:", err);
+  });
+  // --- FIN CAMBIO ---
+  
+  // La verificación de pestaña activa era redundante con la línea anterior
+  // pero la dejamos por si acaso el orden de ejecución es importante.
+  /*
+  if (document.getElementById('tab-resultados').classList.contains('active')) {
+      cargarSelectorEncuestas();
+  }
+  */
+});
+  </script>
+</body>
+</html>
