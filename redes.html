@@ -3,61 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Guías sobre redes informáticas - Coreltech Blog">
+  <!-- Metadatos personalizados -->
+  <meta name="description" content="Artículos sobre redes informáticas en Coreltech Blog - Seguridad, infraestructura y tendencias.">
   <title>Redes - Coreltech Blog</title>
-
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="icon" href="assets/img/favicon.webp" type="image/webp">
+  <link rel="preload" href="assets/img/hero-redes.webp" as="image">
+</head>
+<!-- Clase del body más específica para categoría -->
 <body class="category-page redes">
-
-  <!-- 🧭 Menú -->
   <header class="navbar">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
-    </a>
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="hardware.html">Hardware</a></li>
-        <li><a href="software.html">Software</a></li>
-        <li><a href="redes.html">Redes</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-  <!-- 🎯 Hero -->
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Coreltech IT Solutions" width="150">
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="redes.html">Redes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Section con categoría y contenido específico -->
   <section class="hero" data-category="redes">
     <div class="container">
       <h1>Redes</h1>
-      <p>Consejos, guías y artículos sobre redes informáticas, conectividad y seguridad</p>
+      <p>Artículos sobre infraestructura, seguridad, protocolos y las últimas tendencias en redes informáticas.</p>
     </div>
   </section>
-
-  <!-- 📰 Artículos de Redes -->
   <section class="posts">
     <div class="container">
+      <!-- Título específico para la categoría -->
       <h2>Últimos artículos de Redes</h2>
-      <div id="category-posts" class="post-grid"></div>
+      <!-- Contenedor consistente con hardware.html y software.html (revisadas) -->
+      <div id="category-posts" class="bottom-articles-row"></div>
     </div>
   </section>
-
-  <!-- 📞 Botón de WhatsApp -->
-  <a href=" https://wa.me/584145828186 " target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
-    <img src="../assets/img/whatsapp-icon.webp" alt="WhatsApp">
+  <!-- Enlaces corregidos sin espacios -->
+  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
+    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
   </a>
-
-  <!-- 📌 Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="../assets/img/logo.webp" alt="Logo Coreltech" width="130">
-          <p>Soluciones IT profesionales, rápidas y confiables.</p>
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="150">
+          <p>Revista digital sobre tecnología, desarrollo y soluciones IT.</p>
         </div>
         <div class="footer-contact">
           <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
@@ -66,8 +63,9 @@
         <div class="footer-social">
           <h4>Síguenos</h4>
           <ul>
-            <li><a href="https://www.instagram.com/coreltechsoluciones " target="_blank">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/ @coreltech.ve" target="_blank">TikTok</a></li>
+            <!-- Corregidos los espacios en los href -->
+            <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
           </ul>
         </div>
       </div>
@@ -76,68 +74,43 @@
       </div>
     </div>
   </footer>
-
-  <!-- 🧠 Script para cargar artículos -->
-  <script>
-    fetch("../feed/posts.json")
-      .then(res => res.json())
-      .then(posts => {
-        const container = document.getElementById("category-posts");
-        const redesPosts = posts.filter(post => post.category === "redes");
-
-        redesPosts.forEach(post => {
-          const card = document.createElement("div");
-          card.className = "post-card";
-
-          const thumbnail = post.thumbnail || "../assets/img/blog-article-default.webp";
-
-          card.innerHTML = `
-            <img src="${thumbnail}" alt="${post.title}" class="post-img">
-            <h3>${post.title}</h3>
-            <p><em>${post.date}</em></p>
-            <p>${post.summary}</p>
-            <a href="${post.url}" class="btn-secondary">Leer más</a>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(err => {
-        console.error("❌ Error al cargar artículos de redes:", err);
-      });
-  </script>
-
-  <!-- 🧠 Cargar imagen de fondo del Hero -->
   <script>
     const hero = document.querySelector(".hero");
     if (hero) {
       const category = hero.getAttribute("data-category");
-
       const heroImages = {
-        hardware: "../assets/img/hero-hardware.webp",
-        software: "../assets/img/hero-software.webp",
-        redes: "../assets/img/hero-redes.webp",
-        blog: "../assets/img/hero-blog-default.webp"
+        hardware: "assets/img/hero-hardware.webp",
+        software: "assets/img/hero-software.webp",
+        redes: "assets/img/hero-redes.webp",
+        blog: "assets/img/hero-blog-default.webp"
       };
-
       if (heroImages[category]) {
         const img = new Image();
         img.src = heroImages[category];
-
         img.onload = () => {
           hero.style.backgroundImage = `url('${heroImages[category]}')`;
-          hero.style.backgroundColor = "transparent";
         };
-
         img.onerror = () => {
-          hero.style.backgroundImage = "none";
-          hero.style.backgroundColor = "var(--color-primary)";
+          console.warn(`No se pudo cargar la imagen del hero: ${heroImages[category]}`);
+          hero.style.backgroundColor = "#0070f3";
         };
       }
     }
   </script>
-
-  <!-- 🧠 Menú móvil -->
-<script src="assets/js/menu.js"></script>
-
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  </script>
+  <script src="assets/js/load-posts.js" defer></script>
 </body>
 </html>

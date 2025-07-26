@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Participa en nuestras encuestas - Coreltech Blog">
+  <title>Encuesta - Coreltech Blog</title>
+  <!-- Google Fonts: Estilo revista -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Estilo principal -->
+  <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body class="category-page poll">
+  <!-- 🧭 Menú -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="redes.html">Redes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎯 Hero -->
+  <section class="hero" style="background-color: #667eea;">
+    <div class="container">
+      <h1>📊 Encuesta Comunitaria</h1>
+      <p>Tu opinión nos ayuda a crear contenido que realmente te interese</p>
+    </div>
+  </section>
+
+  <!-- 📰 Sistema de Encuesta -->
+  <section class="poll-section">
+    <div class="container">
+      <div class="poll-card">
+        <h2>¡Tu Voz Importa!</h2>
+        <p class="poll-question" id="poll-question">¿Qué tema te gustaría que cubriéramos próximamente?</p>
+        
+        <!-- Formulario de votación -->
+        <form id="poll-form" style="display: none;">
+          <div class="poll-options" id="poll-options">
+            <!-- Las opciones se cargarán dinámicamente -->
+          </div>
+          <button type="submit" class="poll-submit">Votar</button>
+        </form>
+        
+        <!-- Mensaje de carga -->
+        <div id="loading-message" class="loading-message">
+          <p>Cargando encuesta...</p>
+        </div>
+        
+        <!-- Resultados -->
+        <div id="poll-results" class="poll-results" style="display: none;">
+          <h3>Resultados en Vivo:</h3>
+          <div id="results-container"></div>
+          <div class="poll-thanks">
+            <p>¡Gracias por tu participación! 🙌</p>
+          </div>
+        </div>
+        
+        <!-- Mensaje de error -->
+        <div id="error-message" class="error-message" style="display: none;">
+          <p>Error al cargar la encuesta. Por favor, recarga la página.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📌 Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <p>Revista digital sobre tecnología, desarrollo y soluciones IT.</p>
+        </div>
+        <div class="footer-contact">
+          <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
+          <p><strong>Teléfono:</strong> +58 414 582 8186</p>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 📞 Botón de WhatsApp -->
+  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
+    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
+  </a>
+
+  <!-- 🧠 Menú móvil -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  </script>
+
+  <!-- 🔥 Firebase SDK -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
+    // Configuración de Firebase (REEMPLAZA CON TUS DATOS)
+    const firebaseConfig = {
+  apiKey: "AIzaSyCewCFVkxNQdLmJ2C0ra9ouK_f2mJBzUoQ",
+  authDomain: "coreltech-encuesta.firebaseapp.com",
+  databaseURL: "https://coreltech-encuesta-default-rtdb.firebaseio.com",
+  projectId: "coreltech-encuesta",
+  storageBucket: "coreltech-encuesta.firebasestorage.app",
+  messagingSenderId: "183271496570",
+  appId: "1:183271496570:web:2a829a9f2aa6966f61d4c3"
+};
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Configuración de la encuesta
+    const pollConfig = {
+      id: "main_poll_2024", // ID único para esta encuesta
+      question: "¿Qué tema te gustaría que cubriéramos próximamente?",
+      options: [
+        "Hardware Gaming",
+        "Software Libre", 
+        "Redes Empresariales",
+        "Ciberseguridad",
+        "Inteligencia Artificial",
+        "Desarrollo Web",
+        "IoT (Internet de las Cosas)"
+      ]
+    };
+
+    // Elementos del DOM
+    const pollForm = document.getElementById('poll-form');
+    const pollOptions = document.getElementById('poll-options');
+    const pollResults = document.getElementById('poll-results');
+    const resultsContainer = document.getElementById('results-container');
+    const loadingMessage = document.getElementById('loading-message');
+    const errorMessage = document.getElementById('error-message');
+    const pollQuestion = document.getElementById('poll-question');
+
+    // Mostrar pregunta
+    pollQuestion.textContent = pollConfig.question;
+
+    // Cargar opciones de encuesta
+    function loadPollOptions() {
+      pollOptions.innerHTML = '';
+      pollConfig.options.forEach((option, index) => {
+        const optionHTML = `
+          <div class="poll-option">
+            <input type="radio" id="option${index}" name="poll-option" value="${index}">
+            <label for="option${index}">${option}</label>
+          </div>
+        `;
+        pollOptions.innerHTML += optionHTML;
+      });
+    }
+
+    // Verificar si el usuario ya votó
+    function hasVoted() {
+      return localStorage.getItem(`poll_voted_${pollConfig.id}`) === 'true';
+    }
+
+    // Guardar voto en localStorage
+    function saveVoteLocally(optionIndex) {
+      localStorage.setItem(`poll_voted_${pollConfig.id}`, 'true');
+      localStorage.setItem(`poll_vote_${pollConfig.id}`, optionIndex);
+    }
+
+    // Enviar voto a Firebase
+    async function submitVoteToFirebase(optionIndex) {
+      try {
+        const votesRef = ref(database, `polls/${pollConfig.id}/votes`);
+        await push(votesRef, {
+          option: optionIndex,
+          timestamp: Date.now(),
+          userAgent: navigator.userAgent.substring(0, 100) // Limitar tamaño
+        });
+        return true;
+      } catch (error) {
+        console.error('Error al enviar voto:', error);
+        return false;
+      }
+    }
+
+    // Manejar envío de formulario
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const selectedOption = document.querySelector('input[name="poll-option"]:checked');
+      
+      if (!selectedOption) {
+        alert('Por favor selecciona una opción');
+        return;
+      }
+
+      const optionIndex = parseInt(selectedOption.value);
+      
+      // Mostrar mensaje de carga
+      document.querySelector('.poll-submit').textContent = 'Enviando...';
+      document.querySelector('.poll-submit').disabled = true;
+
+      // Enviar voto a Firebase
+      const success = await submitVoteToFirebase(optionIndex);
+      
+      if (success) {
+        // Guardar en localStorage
+        saveVoteLocally(optionIndex);
+        // Mostrar resultados
+        showResults();
+      } else {
+        alert('Error al enviar el voto. Por favor, inténtalo de nuevo.');
+        document.querySelector('.poll-submit').textContent = 'Votar';
+        document.querySelector('.poll-submit').disabled = false;
+      }
+    }
+
+    // Mostrar resultados en tiempo real
+    function showResults() {
+      loadingMessage.style.display = 'none';
+      pollForm.style.display = 'none';
+      pollResults.style.display = 'block';
+      
+      // Referencia a los votos en Firebase
+      const votesRef = ref(database, `polls/${pollConfig.id}/votes`);
+      
+      // Escuchar cambios en tiempo real
+      onValue(votesRef, (snapshot) => {
+        const votes = snapshot.val();
+        if (votes) {
+          // Contar votos por opción
+          const voteCounts = {};
+          pollConfig.options.forEach((_, index) => {
+            voteCounts[index] = 0;
+          });
+          
+          Object.values(votes).forEach(vote => {
+            if (vote.option !== undefined && voteCounts[vote.option] !== undefined) {
+              voteCounts[vote.option]++;
+            }
+          });
+          
+          // Calcular total de votos
+          const totalVotes = Object.values(voteCounts).reduce((sum, count) => sum + count, 0);
+          
+          // Generar HTML de resultados
+          let resultsHTML = '';
+          pollConfig.options.forEach((option, index) => {
+            const count = voteCounts[index] || 0;
+            const percentage = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
+            
+            resultsHTML += `
+              <div class="result-item">
+                <p>${option}: ${count} votos (${percentage}%)</p>
+                <div class="result-bar">
+                  <div class="result-fill" style="width: ${percentage}%"></div>
+                </div>
+              </div>
+            `;
+          });
+          
+          resultsHTML += `<p class="total-votes">Total de votos: ${totalVotes}</p>`;
+          resultsContainer.innerHTML = resultsHTML;
+        }
+      });
+    }
+
+    // Inicializar encuesta
+    function initPoll() {
+      try {
+        loadPollOptions();
+        
+        if (hasVoted()) {
+          // Usuario ya votó, mostrar resultados
+          showResults();
+        } else {
+          // Usuario no ha votado, mostrar formulario
+          loadingMessage.style.display = 'none';
+          pollForm.style.display = 'block';
+          pollForm.addEventListener('submit', handleSubmit);
+        }
+      } catch (error) {
+        console.error('Error al inicializar encuesta:', error);
+        loadingMessage.style.display = 'none';
+        errorMessage.style.display = 'block';
+      }
+    }
+
+    // Inicializar cuando Firebase esté listo
+    document.addEventListener('DOMContentLoaded', initPoll);
+
+  </script>
+</body>
+</html>

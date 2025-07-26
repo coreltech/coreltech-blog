@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panel de Administración - Resultados de Encuesta Coreltech">
+  <title>📊 Resultados de Encuesta - Coreltech Blog</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Estilo principal -->
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <!-- Estilos específicos para el panel -->
+  <style>
+    /* ==================== */
+    /*  PANEL ADMINISTRACIÓN */
+    /* ==================== */
+    .admin-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .admin-header h1 {
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .admin-header p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .stats-container {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eee;
+      margin-bottom: 2rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: #666;
+      font-size: 1rem;
+    }
+    
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .results-table th {
+      background: #667eea;
+      color: white;
+      padding: 1.2rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    .results-table th:last-child {
+      text-align: center;
+    }
+    
+    .results-table td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #eee;
+      color: #333;
+    }
+    
+    .results-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .results-table tr:hover {
+      background: #f8f9ff;
+    }
+    
+    .option-text {
+      font-weight: 600;
+    }
+    
+    .vote-count {
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    
+    .percentage-bar {
+      background: #e9ecef;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    
+    .percentage-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: width 1s ease;
+    }
+    
+    .percentage-text {
+      text-align: center !important;
+      font-weight: 600;
+      color: #667eea;
+    }
+    
+    .refresh-button {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    
+    .refresh-button:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+    
+    .loading-results {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+    
+    .error-results {
+      background: #fdecea;
+      color: #e74c3c;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .last-update {
+      text-align: right;
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .results-table {
+        font-size: 0.9rem;
+      }
+      
+      .results-table th,
+      .results-table td {
+        padding: 0.8rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body class="category-page admin">
+  <!-- 🧭 Menú -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.webp" alt="Logo Coreltech IT" width="130" />
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hardware.html">Hardware</a></li>
+          <li><a href="software.html">Software</a></li>
+          <li><a href="redes.html">Redes</a></li>
+          <li><a href="encuesta.html">Encuesta</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎯 Header del Panel -->
+  <section class="admin-header">
+    <div class="container">
+      <h1>📊 Panel de Resultados</h1>
+      <p>Análisis en tiempo real de la encuesta comunitaria</p>
+    </div>
+  </section>
+
+  <!-- 📊 Contenido Principal -->
+  <section class="posts">
+    <div class="container">
+      <div class="stats-container">
+        <button id="refresh-btn" class="refresh-button">
+          <span>↻</span> Actualizar Datos
+        </button>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="total-votes">0</div>
+            <div class="stat-label">Votos Totales</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="total-options">0</div>
+            <div class="stat-label">Opciones</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="winning-option">-</div>
+            <div class="stat-label">Opción Ganadora</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="last-vote">-</div>
+            <div class="stat-label">Último Voto</div>
+          </div>
+        </div>
+
+        <div id="loading-results" class="loading-results">
+          <p>📊 Cargando resultados de la encuesta...</p>
+        </div>
+
+        <div id="error-results" class="error-results" style="display: none;">
+          <p>❌ Error al cargar los resultados. Por favor, verifica la conexión.</p>
+        </div>
+
+        <div id="results-content" style="display: none;">
+          <h2>📊 Resultados Detallados</h2>
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Opción</th>
+                <th>Votos</th>
+                <th>Porcentaje</th>
+                <th>Representación</th>
+              </tr>
+            </thead>
+            <tbody id="results-table-body">
+              <!-- Los resultados se cargarán aquí -->
+            </tbody>
+          </table>
+          
+          <div class="last-update">
+            Última actualización: <span id="update-time">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📌 Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/img/logo.webp" alt="Logo Coreltech" width="130">
+          <p>Revista digital sobre tecnología, desarrollo y soluciones IT.</p>
+        </div>
+        <div class="footer-contact">
+          <p><strong>Email:</strong> coreltech.soluciones@gmail.com</p>
+          <p><strong>Teléfono:</strong> +58 414 582 8186</p>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/coreltechsoluciones" target="_blank">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@coreltech.ve" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Coreltech IT Solutions. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 📞 Botón de WhatsApp -->
+  <a href="https://wa.me/584145828186" target="_blank" class="whatsapp-button" aria-label="Contáctanos por WhatsApp">
+    <img src="assets/img/whatsapp-icon.webp" alt="WhatsApp">
+  </a>
+
+  <!-- 🧠 Menú móvil -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+    }
+  </script>
+
+  <!-- 🔥 Firebase SDK y Lógica del Panel -->
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
+    // Configuración de Firebase (DEBE SER LA MISMA QUE EN encuesta.html)
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROYECTO.firebaseapp.com",
+      databaseURL: "https://TU_PROYECTO-default-rtdb.firebaseio.com",
+      projectId: "TU_PROYECTO_ID",
+      storageBucket: "TU_PROYECTO.appspot.com",
+      messagingSenderId: "TU_SENDER_ID",
+      appId: "TU_APP_ID"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Configuración de la encuesta
+    const pollConfig = {
+      id: "main_poll_2024",
+      question: "¿Qué tema te gustaría que cubriéramos próximamente?",
+      options: [
+        "Hardware Gaming",
+        "Software Libre", 
+        "Redes Empresariales",
+        "Ciberseguridad",
+        "Inteligencia Artificial",
+        "Desarrollo Web",
+        "IoT (Internet de las Cosas)"
+      ]
+    };
+
+    // Elementos del DOM
+    const loadingResults = document.getElementById('loading-results');
+    const errorResults = document.getElementById('error-results');
+    const resultsContent = document.getElementById('results-content');
+    const resultsTableBody = document.getElementById('results-table-body');
+    const refreshBtn = document.getElementById('refresh-btn');
+    const updateTime = document.getElementById('update-time');
+
+    // Elementos de estadísticas
+    const totalVotesEl = document.getElementById('total-votes');
+    const totalOptionsEl = document.getElementById('total-options');
+    const winningOptionEl = document.getElementById('winning-option');
+    const lastVoteEl = document.getElementById('last-vote');
+
+    // Formatear fecha
+    function formatTime(date) {
+      return date.toLocaleTimeString('es-ES', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+
+    // Mostrar resultados
+    function displayResults() {
+      const votesRef = ref(database, `polls/${pollConfig.id}/votes`);
+      
+      onValue(votesRef, (snapshot) => {
+        try {
+          const votes = snapshot.val();
+          
+          if (votes) {
+            // Contar votos por opción
+            const voteCounts = {};
+            pollConfig.options.forEach((_, index) => {
+              voteCounts[index] = 0;
+            });
+            
+            let lastVoteTime = 0;
+            let totalVotes = 0;
+            
+            Object.values(votes).forEach(vote => {
+              if (vote.option !== undefined && voteCounts[vote.option] !== undefined) {
+                voteCounts[vote.option]++;
+                totalVotes++;
+                if (vote.timestamp && vote.timestamp > lastVoteTime) {
+                  lastVoteTime = vote.timestamp;
+                }
+              }
+            });
+            
+            // Calcular porcentajes
+            const percentages = {};
+            pollConfig.options.forEach((_, index) => {
+              percentages[index] = totalVotes > 0 ? Math.round((voteCounts[index] / totalVotes) * 100) : 0;
+            });
+            
+            // Encontrar opción ganadora
+            let winningIndex = 0;
+            let maxVotes = 0;
+            pollConfig.options.forEach((_, index) => {
+              if (voteCounts[index] > maxVotes) {
+                maxVotes = voteCounts[index];
+                winningIndex = index;
+              }
+            });
+            
+            // Actualizar estadísticas
+            totalVotesEl.textContent = totalVotes;
+            totalOptionsEl.textContent = pollConfig.options.length;
+            winningOptionEl.textContent = pollConfig.options[winningIndex];
+            lastVoteEl.textContent = lastVoteTime ? formatTime(new Date(lastVoteTime)) : '-';
+            
+            // Generar tabla de resultados
+            let tableHTML = '';
+            pollConfig.options.forEach((option, index) => {
+              const count = voteCounts[index] || 0;
+              const percentage = percentages[index] || 0;
+              
+              tableHTML += `
+                <tr>
+                  <td class="option-text">${option}</td>
+                  <td class="vote-count">${count}</td>
+                  <td>${percentage}%</td>
+                  <td>
+                    <div class="percentage-bar">
+                      <div class="percentage-fill" style="width: ${percentage}%"></div>
+                    </div>
+                  </td>
+                </tr>
+              `;
+            });
+            
+            resultsTableBody.innerHTML = tableHTML;
+            
+            // Mostrar resultados
+            loadingResults.style.display = 'none';
+            errorResults.style.display = 'none';
+            resultsContent.style.display = 'block';
+            
+            // Actualizar hora
+            updateTime.textContent = formatTime(new Date());
+            
+          } else {
+            // No hay votos aún
+            totalVotesEl.textContent = '0';
+            totalOptionsEl.textContent = pollConfig.options.length;
+            winningOptionEl.textContent = '-';
+            lastVoteEl.textContent = '-';
+            
+            resultsTableBody.innerHTML = `
+              <tr>
+                <td colspan="4" style="text-align: center; color: #666; font-style: italic;">
+                  No hay votos registrados aún
+                </td>
+              </tr>
+            `;
+            
+            loadingResults.style.display = 'none';
+            errorResults.style.display = 'none';
+            resultsContent.style.display = 'block';
+            updateTime.textContent = formatTime(new Date());
+          }
+        } catch (error) {
+          console.error('Error al procesar resultados:', error);
+          loadingResults.style.display = 'none';
+          resultsContent.style.display = 'none';
+          errorResults.style.display = 'block';
+        }
+      }, (error) => {
+        console.error('Error al obtener datos de Firebase:', error);
+        loadingResults.style.display = 'none';
+        resultsContent.style.display = 'none';
+        errorResults.style.display = 'block';
+      });
+    }
+
+    // Evento para botón de refrescar
+    refreshBtn.addEventListener('click', () => {
+      refreshBtn.disabled = true;
+      refreshBtn.innerHTML = '<span>↻</span> Actualizando...';
+      
+      setTimeout(() => {
+        refreshBtn.disabled = false;
+        refreshBtn.innerHTML = '<span>↻</span> Actualizar Datos';
+      }, 1000);
+    });
+
+    // Inicializar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      displayResults();
+    });
+
+  </script>
+</body>
+</html>

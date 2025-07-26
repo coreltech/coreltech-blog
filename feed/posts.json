@@ -1,74 +1,62 @@
 [
   {
-    "title": "Cómo limpiar tu PC de basura y acelerar Windows en 5 minutos",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/articulo-limpieza-pc.webp",
-    "summary": "Guía rápida para eliminar archivos temporales, liberar espacio y mejorar el rendimiento de tu computadora sin instalar programas.",
-    "url": "articulos/articulo-c-mo-limpiar-tu-pc-de-basura-y-acelerar-windows-en-5-minutos.html",
-    "category": "software"
+    "title": "Señales de que tu PC necesita mantenimiento",
+    "author": "Equipo Coreltech",
+    "readingTime": "5 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/senal-mantenimiento.webp",
+    "summary": "¿Tu computadora anda lenta o hace ruidos extraños? Estas señales indican que es hora de un mantenimiento.",
+    "url": "articulos/articulo-senales-de-que-tu-pc-necesita-mantenimiento.html",
+    "category": "hardware"
   },
   {
-    "title": "Cómo mejorar la señal de Wi-Fi en casa sin comprar un nuevo router",
-    "date": "2025-07-21",
+    "title": "¿Qué es una red Wi-Fi? Principios básicos",
+    "author": "Equipo Coreltech",
+    "readingTime": "6 min",
+    "date": "24 de julio de 2025",
     "thumbnail": "assets/img/articulo-wifi.webp",
-    "summary": "Guía práctica para mejorar la cobertura del Wi-Fi en casa usando técnicas simples, sin necesidad de cambiar el router.",
-    "url": "articulos/articulo-c-mo-mejorar-la-se-al-de-wi-fi-en-casa-sin-comprar-un-nuevo-router.html",
+    "summary": "Descubre qué es una red Wi-Fi, cómo funciona y cuáles son sus componentes básicos.",
+    "url": "articulos/articulo-que-es-una-red-wi-fi-principios-basicos.html",
     "category": "redes"
   },
   {
-    "title": "primer artículo automatizadoprimer artículo automatizado",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/articulo-prueba.webp",
-    "summary": "Artículo sobre software",
-    "url": "articulos/articulo-primer-art-culo-automatizadoprimer-art-culo-automatizado.html",
+    "title": "Tipos de archivos en una PC: Nociones básicas",
+    "author": "Equipo Coreltech",
+    "readingTime": "5 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/tipos-archivos.webp",
+    "summary": "Aprende los tipos de archivos más comunes en una computadora, sus extensiones y para qué se usan.",
+    "url": "articulos/articulo-tipos-de-archivos-en-una-pc-nociones-basicas.html",
     "category": "software"
   },
   {
-    "title": "prueba1",
-    "date": "2025-07-21",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "summary": "Artículo sobre software",
-    "url": "articulos/articulo-prueba1.html",
-    "category": "software"
-  },
-  {
-    "title": "Cómo limpiar el ventilador de la CPU",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo-hardware.webp",
-    "summary": "Artículo sobre hardware",
-    "url": "articulos/articulo-hardware.html",
-    "category": "hardware"
-  },
-  {
-    "title": "Cómo mejorar la señal WiFi sin cambiar de router",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo-redes.webp",
-    "summary": "Artículo sobre redes",
-    "url": "articulos/articulo-redes.html",
+    "title": "Routers y Switches: ¿Qué son y para qué se usan?",
+    "author": "Equipo Coreltech",
+    "readingTime": "7 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/router-switch.webp",
+    "summary": "Conoce las diferencias entre routers y switches, dos componentes esenciales en redes de computadoras.",
+    "url": "articulos/articulo-routers-y-switches-que-son-y-para-que-se-usan.html",
     "category": "redes"
   },
   {
-    "title": "Errores comunes de actualizaciones de Windows",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo-software.webp",
-    "summary": "Artículo sobre software",
-    "url": "articulos/articulo-software.html",
+    "title": "Diferencias entre FAT32 y NTFS: ¿Cuál sistema de archivos elegir?",
+    "author": "Equipo Coreltech",
+    "readingTime": "7 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/fat32-vs-ntfs.webp",
+    "summary": "Comprende las principales diferencias entre los sistemas de archivos FAT32 y NTFS en Windows para tomar decisiones informadas sobre tu almacenamiento.",
+    "url": "articulos/articulo-diferencias-entre-fat32-y-ntfs-cual-sistema-de-archivos-elegir.html",
     "category": "software"
   },
   {
-    "title": "Cómo limpiar el ventilador de la CPU",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/blog-article-default.webp",
-    "summary": "Artículo sobre hardware",
-    "url": "articulos/articulo1.html",
-    "category": "hardware"
-  },
-  {
-    "title": "Cómo limpiar un disco duro sin perder datos",
-    "date": "2025-07-20",
-    "thumbnail": "assets/img/articulo4.webp",
-    "summary": "Artículo sobre hardware",
-    "url": "articulos/articulo4.html",
+    "title": "¿Qué es el mantenimiento de una PC?",
+    "author": "Equipo Coreltech",
+    "readingTime": "6 min",
+    "date": "24 de julio de 2025",
+    "thumbnail": "assets/img/pc-mantenimiento.webp",
+    "summary": "Conoce qué implica el mantenimiento preventivo y correctivo de una computadora para mantenerla en óptimas condiciones.",
+    "url": "articulos/articulo-que-es-el-mantenimiento-de-una-pc.html",
     "category": "hardware"
   }
 ]
