@@ -1,9 +1,19 @@
 [
   {
+    "title": "Yo Programo, la IA Ayuda Una Conversación Sobre Ética, Aprendizaje y el Futuro del Desarrollo Web",
+    "author": "Agustin A. Lugo A.",
+    "readingTime": "5 min",
+    "date": "11 de agosto de 2025",
+    "thumbnail": "assets/img/reflexiones.webp",
+    "summary": "Reflexiones de un Tecnico Programador.",
+    "url": "articulos/articulo-yo-programo-la-ia-ayuda-una-conversacion-sobre-etica-aprendizaje-y-el-futuro-del-desarrollo-web.html",
+    "category": "software"
+  },
+  {
     "title": "Señales de que tu PC necesita mantenimiento",
     "author": "Equipo Coreltech",
     "readingTime": "5 min",
-    "date": "24 de julio de 2025",
+    "date": "31 de julio de 2025",
     "thumbnail": "assets/img/senal-mantenimiento.webp",
     "summary": "¿Tu computadora anda lenta o hace ruidos extraños? Estas señales indican que es hora de un mantenimiento.",
     "url": "articulos/articulo-senales-de-que-tu-pc-necesita-mantenimiento.html",
